@@ -277,6 +277,31 @@
   .loc-split .loc-map-img img{width:100%;height:auto;display:block;}
   .map-btns{margin-top:30px;}
   @media(max-width:768px){.loc-split{grid-template-columns:1fr;}}
+
+  /* ===== GALLERY LIGHTBOX ===== */
+  .gal-card{cursor:pointer;}
+  .lightbox{position:fixed;inset:0;z-index:9000;background:rgba(8,8,6,0.96);display:none;align-items:center;justify-content:center;padding:24px;}
+  .lightbox.open{display:flex;}
+  .lb-frame{position:relative;max-width:1100px;width:100%;max-height:88vh;display:flex;flex-direction:column;align-items:center;}
+  .lb-imgwrap{position:relative;width:100%;max-height:78vh;overflow:hidden;border:1px solid rgba(201,168,76,0.3);background:#0d0c09;}
+  .lb-imgwrap img{width:100%;height:78vh;object-fit:contain;display:block;background:#0d0c09;}
+  .lb-cap{position:absolute;left:0;right:0;bottom:0;padding:30px 34px;background:linear-gradient(to top, rgba(8,8,6,0.92) 0%, rgba(8,8,6,0.55) 60%, transparent 100%);}
+  .lb-tag{font-size:11px;font-weight:600;letter-spacing:0.28em;text-transform:uppercase;color:#C9A84C;}
+  .lb-title{margin-top:8px;font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:500;color:#F5F2EC;line-height:1.15;}
+  .lb-sub{margin-top:4px;font-style:italic;font-family:'Cormorant Garamond',serif;color:#E3C77E;font-size:15px;}
+  .lb-count{margin-top:16px;font-size:11px;letter-spacing:0.12em;color:#8A8578;}
+  .lb-close,.lb-prev,.lb-next{position:absolute;background:rgba(8,8,6,0.7);border:1px solid rgba(201,168,76,0.4);color:#F5F2EC;width:46px;height:46px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;cursor:pointer;transition:background .2s,border-color .2s;user-select:none;}
+  .lb-close:hover,.lb-prev:hover,.lb-next:hover{background:rgba(201,168,76,0.18);border-color:#C9A84C;}
+  .lb-close{top:-58px;right:0;}
+  .lb-prev{left:-58px;top:50%;transform:translateY(-50%);}
+  .lb-next{right:-58px;top:50%;transform:translateY(-50%);}
+  @media(max-width:860px){
+    .lb-close{top:-50px;right:0;width:38px;height:38px;}
+    .lb-prev{left:6px;top:auto;bottom:96px;transform:none;width:38px;height:38px;}
+    .lb-next{right:6px;top:auto;bottom:96px;transform:none;width:38px;height:38px;}
+    .lb-title{font-size:22px;}
+    .lb-cap{padding:20px 20px;}
+  }
 </style>
 </head>
 <body>
@@ -347,10 +372,10 @@
     <div class="arch-feat"><h4>Open Gym</h4><p>Open-air fitness within the compound</p></div>
   </div>
   <div class="levels reveal">
+    <div class="level-row"><div class="level-tag">Level B · Basement Floor</div><div class="level-name">The Foundation</div></div>
+    <div class="level-row"><div class="level-tag">Level G · Ground Floor</div><div class="level-name">The Private Retreat</div></div>
+    <div class="level-row"><div class="level-tag">Level 1 · First Floor</div><div class="level-name">The Arrival</div></div>
     <div class="level-row"><div class="level-tag">Level R · Roof Floor</div><div class="level-name">The Crown</div></div>
-    <div class="level-row"><div class="level-tag">Level 2 · Second Floor</div><div class="level-name">The Family Quarters</div></div>
-    <div class="level-row"><div class="level-tag">Level 1 · First Floor</div><div class="level-name">The Private Retreat</div></div>
-    <div class="level-row"><div class="level-tag">Level G · Ground Floor</div><div class="level-name">The Arrival</div></div>
   </div>
 </section>
 
@@ -384,9 +409,9 @@
     <h2>Four Levels, <em>In Detail</em></h2>
   </div>
   <div class="floor-grid reveal">
-    <a class="floor" href="images/floor-ground.jpg" target="_blank" rel="noopener"><img src="images/floor-ground.jpg" alt="AURA Ground floor plan"><span class="fcap"><span class="ft">Level G · Ground</span><span class="fn">The Arrival</span></span></a>
-    <a class="floor" href="images/floor-first.jpg" target="_blank" rel="noopener"><img src="images/floor-first.jpg" alt="AURA First floor plan"><span class="fcap"><span class="ft">Level 1 · First</span><span class="fn">The Private Retreat</span></span></a>
-    <a class="floor" href="images/floor-second.jpg" target="_blank" rel="noopener"><img src="images/floor-second.jpg" alt="AURA Second floor plan"><span class="fcap"><span class="ft">Level 2 · Second</span><span class="fn">The Family Quarters</span></span></a>
+    <a class="floor" href="images/floor-ground.jpg" target="_blank" rel="noopener"><img src="images/floor-ground.jpg" alt="AURA Basement floor plan"><span class="fcap"><span class="ft">Level B · Basement</span><span class="fn">The Foundation</span></span></a>
+    <a class="floor" href="images/floor-first.jpg" target="_blank" rel="noopener"><img src="images/floor-first.jpg" alt="AURA Ground floor plan"><span class="fcap"><span class="ft">Level G · Ground</span><span class="fn">The Private Retreat</span></span></a>
+    <a class="floor" href="images/floor-second.jpg" target="_blank" rel="noopener"><img src="images/floor-second.jpg" alt="AURA First floor plan"><span class="fcap"><span class="ft">Level 1 · First</span><span class="fn">The Arrival</span></span></a>
     <a class="floor" href="images/floor-roof.jpg" target="_blank" rel="noopener"><img src="images/floor-roof.jpg" alt="AURA Roof floor plan"><span class="fcap"><span class="ft">Level R · Roof</span><span class="fn">The Crown</span></span></a>
   </div>
   <p style="text-align:center;margin-top:24px;font-size:12px;color:var(--muted);font-style:italic;">Tap any plan to view full size.</p>
@@ -398,17 +423,34 @@
     <h2>Arrive in <em>Style</em></h2>
   </div>
   <div class="gallery reveal">
-    <div class="gal-card has-img" style="background-image:url('images/aura-hero.jpg')"><div class="gal-tag">The Facade</div><h3>Where Every Morning Begins</h3><div class="gsub">In Gold</div></div>
-    <div class="gal-card has-img" style="background-image:url('images/g-pool.jpg')"><div class="gal-tag">Your Private Pool</div><h3>Every Evening, Yours Alone</h3></div>
-    <div class="gal-card has-img" style="background-image:url('images/g-master.jpg')"><div class="gal-tag">Master Suite</div><h3>A Retreat Above All Others</h3></div>
-    <div class="gal-card has-img" style="background-image:url('images/g-bathroom.jpg')"><div class="gal-tag">Bathroom</div><h3>Travertine Sanctuary</h3></div>
-    <div class="gal-card has-img" style="background-image:url('images/g-kitchen.jpg')"><div class="gal-tag">Kitchen</div><h3>Life, Lived at the Centre</h3></div>
-    <div class="gal-card has-img" style="background-image:url('images/g-kids.jpg')"><div class="gal-tag">Kids Area</div><h3>Where Little Ones Belong</h3><div class="gsub">Theirs to Explore</div></div>
-    <div class="gal-card has-img" style="background-image:url('images/g-gym.jpg')"><div class="gal-tag">Outdoor Gym</div><h3>Open Air. Open Potential.</h3><div class="gsub">Stronger, Every Morning</div></div>
-    <div class="gal-card has-img" style="background-image:url('images/g-gate.jpg')"><div class="gal-tag">Gated Entry</div><h3>The Same Gate, Every Day You Come Home</h3></div>
-    <div class="gal-card has-img" style="background-image:url('images/g-back.jpg')"><div class="gal-tag">The Backyard</div><h3>Where the Day Unwinds</h3><div class="gsub">Pool · Garden · Privacy</div></div>
+    <div class="gal-card has-img" onclick="openLightbox(0)" style="background-image:url('images/aura-hero.jpg')"><div class="gal-tag">The Facade</div><h3>Where Every Morning Begins</h3><div class="gsub">In Gold</div></div>
+    <div class="gal-card has-img" onclick="openLightbox(1)" style="background-image:url('images/g-pool.jpg')"><div class="gal-tag">Your Private Pool</div><h3>Every Evening, Yours Alone</h3></div>
+    <div class="gal-card has-img" onclick="openLightbox(2)" style="background-image:url('images/g-master.jpg')"><div class="gal-tag">Master Suite</div><h3>A Retreat Above All Others</h3></div>
+    <div class="gal-card has-img" onclick="openLightbox(3)" style="background-image:url('images/g-bathroom.jpg')"><div class="gal-tag">Bathroom</div><h3>Travertine Sanctuary</h3></div>
+    <div class="gal-card has-img" onclick="openLightbox(4)" style="background-image:url('images/g-kitchen.jpg')"><div class="gal-tag">Kitchen</div><h3>Life, Lived at the Centre</h3></div>
+    <div class="gal-card has-img" onclick="openLightbox(5)" style="background-image:url('images/g-kids.jpg')"><div class="gal-tag">Kids Area</div><h3>Where Little Ones Belong</h3><div class="gsub">Theirs to Explore</div></div>
+    <div class="gal-card has-img" onclick="openLightbox(6)" style="background-image:url('images/g-gym.jpg')"><div class="gal-tag">Outdoor Gym</div><h3>Open Air. Open Potential.</h3><div class="gsub">Stronger, Every Morning</div></div>
+    <div class="gal-card has-img" onclick="openLightbox(7)" style="background-image:url('images/g-gate.jpg')"><div class="gal-tag">Gated Entry</div><h3>The Same Gate, Every Day You Come Home</h3></div>
+    <div class="gal-card has-img" onclick="openLightbox(8)" style="background-image:url('images/g-back.jpg')"><div class="gal-tag">The Backyard</div><h3>Where the Day Unwinds</h3><div class="gsub">Pool · Garden · Privacy</div></div>
   </div>
 </section>
+
+<div class="lightbox" id="lightbox" onclick="if(event.target.id==='lightbox')closeLightbox()">
+  <div class="lb-frame">
+    <div class="lb-close" onclick="closeLightbox()">✕</div>
+    <div class="lb-prev" onclick="navLightbox(-1)">‹</div>
+    <div class="lb-next" onclick="navLightbox(1)">›</div>
+    <div class="lb-imgwrap">
+      <img id="lbImg" src="" alt="">
+      <div class="lb-cap">
+        <div class="lb-tag" id="lbTag"></div>
+        <div class="lb-title" id="lbTitle"></div>
+        <div class="lb-sub" id="lbSub"></div>
+      </div>
+    </div>
+    <div class="lb-count" id="lbCount"></div>
+  </div>
+</div>
 
 <section id="location">
   <div class="section-head reveal">
@@ -429,7 +471,7 @@
   </div>
   <div class="loc-split reveal">
     <div class="loc-map-frame">
-      <iframe src="https://maps.google.com/maps?q=29.996889,30.885319&z=15&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="AURA location on Google Maps"></iframe>
+      <iframe src="https://maps.google.com/maps?q=29.996889,30.885319&z=15&t=k&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="AURA location on Google Maps"></iframe>
     </div>
     <div class="loc-map-img">
       <img src="images/location-map.jpg" alt="AURA location map — Sheikh Zayed Green Belt, surrounding compounds and roads">
@@ -522,6 +564,59 @@
   const hamburger=document.getElementById('hamburgerBtn');
   const navLinks=document.getElementById('navLinks');
   hamburger.addEventListener('click', ()=> navLinks.classList.toggle('open'));
+
+  /* ===== GALLERY LIGHTBOX ===== */
+  const lbData=[
+    {img:'images/aura-hero.jpg', tag:'The Facade', title:'Where Every Morning Begins', sub:'In Gold'},
+    {img:'images/g-pool.jpg', tag:'Your Private Pool', title:'Every Evening, Yours Alone', sub:''},
+    {img:'images/g-master.jpg', tag:'Master Suite', title:'A Retreat Above All Others', sub:''},
+    {img:'images/g-bathroom.jpg', tag:'Bathroom', title:'Travertine Sanctuary', sub:''},
+    {img:'images/g-kitchen.jpg', tag:'Kitchen', title:'Life, Lived at the Centre', sub:''},
+    {img:'images/g-kids.jpg', tag:'Kids Area', title:'Where Little Ones Belong', sub:'Theirs to Explore'},
+    {img:'images/g-gym.jpg', tag:'Outdoor Gym', title:'Open Air. Open Potential.', sub:'Stronger, Every Morning'},
+    {img:'images/g-gate.jpg', tag:'Gated Entry', title:'The Same Gate, Every Day You Come Home', sub:''},
+    {img:'images/g-back.jpg', tag:'The Backyard', title:'Where the Day Unwinds', sub:'Pool · Garden · Privacy'}
+  ];
+  let lbIndex=0;
+  const lbEl=document.getElementById('lightbox');
+  function renderLightbox(){
+    const d=lbData[lbIndex];
+    document.getElementById('lbImg').src=d.img;
+    document.getElementById('lbImg').alt=d.title;
+    document.getElementById('lbTag').textContent=d.tag;
+    document.getElementById('lbTitle').textContent=d.title;
+    const subEl=document.getElementById('lbSub');
+    subEl.textContent=d.sub; subEl.style.display=d.sub?'block':'none';
+    document.getElementById('lbCount').textContent=(lbIndex+1)+' / '+lbData.length;
+  }
+  function openLightbox(i){
+    lbIndex=i; renderLightbox(); lbEl.classList.add('open');
+    document.body.style.overflow='hidden';
+  }
+  function closeLightbox(){
+    lbEl.classList.remove('open');
+    document.body.style.overflow='';
+  }
+  function navLightbox(dir){
+    lbIndex=(lbIndex+dir+lbData.length)%lbData.length;
+    renderLightbox();
+  }
+  document.addEventListener('keydown', e=>{
+    if(!lbEl.classList.contains('open')) return;
+    if(e.key==='Escape') closeLightbox();
+    if(e.key==='ArrowLeft') navLightbox(-1);
+    if(e.key==='ArrowRight') navLightbox(1);
+  });
+  /* swipe support */
+  let lbTouchX=null;
+  const lbFrame=document.querySelector('.lb-frame');
+  lbFrame.addEventListener('touchstart', e=>{ lbTouchX=e.touches[0].clientX; });
+  lbFrame.addEventListener('touchend', e=>{
+    if(lbTouchX===null) return;
+    const dx=e.changedTouches[0].clientX-lbTouchX;
+    if(Math.abs(dx)>40) navLightbox(dx<0?1:-1);
+    lbTouchX=null;
+  });
 </script>
 
 <div id="sp" style="position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,#C9A84C,#E3C77E);z-index:10000;transition:width .12s ease;"></div>
