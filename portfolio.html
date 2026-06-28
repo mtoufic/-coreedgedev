@@ -198,7 +198,9 @@
 
   /* ===== CONTACT ===== */
   .contact-band{border-top:1px solid var(--hairline);background:linear-gradient(180deg,var(--panel),var(--ink));}
-  .contact-grid{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:48px;}
+  .contact-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-bottom:48px;}
+  @media(max-width:860px){.contact-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:480px){.contact-grid{grid-template-columns:1fr;}}
   .cinfo{border:1px solid var(--hairline);padding:32px 26px;text-align:center;}
   .cinfo .cicon{font-size:22px;color:var(--gold);}
   .cinfo .ctitle{margin-top:14px;font-size:10.5px;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);}
@@ -391,14 +393,19 @@
       <div class="cval"><a href="tel:+201100003939">+20 11 0000 3939</a></div>
     </div>
     <div class="cinfo reveal">
+      <div class="cicon">☏</div>
+      <div class="ctitle">WhatsApp</div>
+      <div class="cval"><a href="https://wa.me/201100003939" target="_blank" rel="noopener">Message Us</a></div>
+    </div>
+    <div class="cinfo reveal">
       <div class="cicon">✉</div>
       <div class="ctitle">Email</div>
-      <div class="cval"><a href="mailto:coreedgerealestate@gmail.com">coreedgerealestate@gmail.com</a></div>
+      <div class="cval"><a href="mailto:sales@coreedgedev.com">sales@coreedgedev.com</a></div>
     </div>
     <div class="cinfo reveal">
       <div class="cicon">⌖</div>
       <div class="ctitle">Visit</div>
-      <div class="cval">West Square Mall, 2nd Floor, S31<br>Beverly Hills, Sheikh Zayed</div>
+      <div class="cval">West Square Mall, 2nd Floor, S31<br>SODIC West Beverly Hills, Giza</div>
     </div>
   </div>
   <div class="contact-cta reveal">
@@ -415,6 +422,7 @@
     <a href="portfolio.html">Developer</a>
     <a href="https://wa.me/201100003939" target="_blank" rel="noopener">WhatsApp</a>
     <a href="https://www.instagram.com/coreedgedev" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://www.facebook.com/coreedgedev" target="_blank" rel="noopener">Facebook</a>
   </div>
   <div class="footer-bottom">
     © 2026 Core Edge Development &amp; Real Estate
