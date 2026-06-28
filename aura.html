@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AURA — By Core Edge</title>
+<meta name="description" content="AURA by Core Edge — a limited collection of twenty signature villas on Sheikh Zayed's Green Belt. Four levels, private pools, travertine and glass. 6th of October City, Giza.">
+<link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:title" content="AURA — By Core Edge">
+<meta property="og:description" content="Twenty signature villas. Not merely a residence. A legacy. On Sheikh Zayed's Green Belt.">
+<meta property="og:image" content="https://coreedgedev.com/images/aura-logo.svg">
+<meta property="og:url" content="https://coreedgedev.com/aura.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#F0E9DC;
+    --cream-deep:#E8DFCD;
+    --ink:#1E1A15;
+    --gold:#C9A84C;
+    --gold-deep:#A8853A;
+    --muted:#8C8270;
+    --hairline: rgba(30,26,21,0.12);
+    --hairline-gold: rgba(201,168,76,0.4);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--cream);color:var(--ink);font-family:'Montserrat',sans-serif;overflow-x:hidden;}
+  .label{font-size:11px;font-weight:600;letter-spacing:0.32em;text-transform:uppercase;color:var(--gold-deep);}
+  h1,h2,h3{font-family:'Cormorant Garamond',serif;font-weight:500;line-height:1.08;color:var(--ink);}
+  em{font-style:italic;color:var(--gold-deep);}
+
+  nav{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:20px 48px;background:rgba(240,233,220,0.96);backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--hairline);
+  }
+  .nav-mark{font-family:'Cormorant Garamond',serif;font-size:20px;letter-spacing:0.08em;color:var(--ink);}
+  .nav-links{display:flex;gap:28px;align-items:center;}
+  .nav-links a{color:var(--ink);text-decoration:none;font-size:11.5px;letter-spacing:0.12em;text-transform:uppercase;font-weight:500;opacity:0.78;}
+  .nav-links a:hover{opacity:1;color:var(--gold-deep);}
+  .btn-contact{
+    background:var(--gold-deep);color:var(--cream)!important;opacity:1!important;
+    padding:10px 22px;font-weight:700;letter-spacing:0.12em;transition:transform 0.2s;
+  }
+  .btn-contact:hover{transform:translateY(-2px);color:var(--cream)!important;}
+  .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:6px;}
+  .hamburger span{width:22px;height:2px;background:var(--ink);}
+  @media(max-width:900px){
+    nav{padding:18px 22px;}
+    .nav-links{
+      display:none;position:absolute;top:100%;left:0;right:0;
+      background:rgba(240,233,220,0.99);flex-direction:column;align-items:flex-start;
+      padding:22px 26px 28px;gap:18px;border-bottom:1px solid var(--hairline);
+    }
+    .nav-links.open{display:flex;}
+    .btn-contact{margin-top:6px;}
+    .hamburger{display:flex;}
+  }
+
+  .hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:150px 24px 80px;}
+  .hero img.logo{width:100%;max-width:260px;margin-bottom:22px;}
+  .hero .label{margin-bottom:8px;}
+  .hero h1{font-size:clamp(30px,4.6vw,48px);max-width:680px;}
+  .hero p.sub{margin-top:18px;font-style:italic;font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--gold-deep);}
+  .hero .loc{margin-top:22px;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);}
+  .hero-cta{margin-top:38px;display:flex;gap:16px;flex-wrap:wrap;justify-content:center;}
+  .btn-primary{background:var(--ink);color:var(--cream);padding:15px 30px;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;font-weight:600;text-decoration:none;transition:transform 0.25s;}
+  .btn-primary:hover{transform:translateY(-2px);}
+  .btn-outline{border:1px solid var(--ink);color:var(--ink);padding:15px 30px;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;font-weight:500;text-decoration:none;}
+  .btn-outline:hover{border-color:var(--gold-deep);color:var(--gold-deep);}
+  .flourish{margin-top:56px;color:var(--gold-deep);font-size:20px;}
+
+  section{padding:110px 24px;}
+  .section-head{text-align:center;max-width:620px;margin:0 auto 56px;}
+  .section-head .label{margin-bottom:16px;}
+  .section-head h2{font-size:clamp(28px,3.6vw,42px);}
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity 0.7s ease, transform 0.7s ease;}
+  .reveal.in{opacity:1;transform:translateY(0);}
+  @keyframes floaty{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
+  .hero img.logo{animation:floaty 5.5s ease-in-out infinite;}
+  nav{transition:padding .3s ease, box-shadow .3s ease;}
+  nav.scrolled{padding-top:13px;padding-bottom:13px;box-shadow:0 12px 30px rgba(30,26,21,0.16);}
+  .stat-num{font-variant-numeric:tabular-nums;}
+
+  /* exclusivity */
+  .excl{background:var(--cream-deep);}
+  .excl-intro{max-width:680px;margin:0 auto 56px;text-align:center;}
+  .excl-intro p{font-size:17px;line-height:1.8;color:var(--ink);}
+  .excl-tags{max-width:900px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline);}
+  .excl-tag{padding:32px 20px;text-align:center;border-right:1px solid var(--hairline);}
+  .excl-tag:last-child{border-right:none;}
+  .excl-tag .big{font-family:'Cormorant Garamond',serif;font-size:30px;color:var(--gold-deep);}
+  .excl-tag .small{margin-top:8px;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);}
+  @media(max-width:768px){.excl-tags{grid-template-columns:1fr;} .excl-tag{border-right:none;border-bottom:1px solid var(--hairline);}}
+
+  /* project stats */
+  .stats{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(5,1fr);text-align:center;gap:8px;}
+  .stat-num{font-family:'Cormorant Garamond',serif;font-size:clamp(30px,4vw,44px);color:var(--gold-deep);}
+  .stat-label{margin-top:8px;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);}
+  @media(max-width:768px){.stats{grid-template-columns:repeat(2,1fr);gap:32px;}}
+
+  /* architecture */
+  .arch{background:var(--ink);color:var(--cream);}
+  .arch .label{color:var(--gold);}
+  .arch h2{color:var(--cream);}
+  .arch-intro{max-width:680px;margin:0 auto 64px;text-align:center;}
+  .arch-intro p{font-size:16px;line-height:1.85;color:rgba(240,233,220,0.75);}
+  .arch-features{max-width:1000px;margin:0 auto 80px;display:grid;grid-template-columns:repeat(auto-fit,minmax(165px,1fr));gap:32px;}
+  .arch-feat{border-top:1px solid rgba(201,168,76,0.3);padding-top:18px;}
+  .arch-feat h4{font-size:16px;font-weight:600;letter-spacing:0.02em;color:var(--cream);font-family:'Montserrat',sans-serif;}
+  .arch-feat p{margin-top:8px;font-size:13px;line-height:1.6;color:rgba(240,233,220,0.6);}
+  @media(max-width:768px){.arch-features{grid-template-columns:repeat(2,1fr);}}
+
+  .levels{max-width:760px;margin:0 auto;}
+  .level-row{display:flex;justify-content:space-between;align-items:baseline;padding:26px 0;border-bottom:1px solid rgba(201,168,76,0.22);}
+  .level-row:first-child{border-top:1px solid rgba(201,168,76,0.22);}
+  .level-tag{font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);width:160px;flex-shrink:0;}
+  .level-name{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;color:var(--cream);}
+  .floor-grid{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
+  .floor{border:1px solid var(--hairline);background:#fff;padding:12px;text-decoration:none;display:block;transition:transform .3s, box-shadow .3s;}
+  .floor:hover{transform:translateY(-5px);box-shadow:0 18px 44px rgba(30,26,21,0.14);}
+  .floor img{width:100%;height:auto;display:block;}
+  .floor .fcap{display:block;text-align:center;padding:14px 4px 4px;}
+  .floor .ft{display:block;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold-deep);}
+  .floor .fn{display:block;margin-top:5px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;color:var(--ink);}
+  @media(max-width:900px){.floor-grid{grid-template-columns:1fr 1fr;}}
+  @media(max-width:560px){.floor-grid{grid-template-columns:1fr;}}
+  .masterplan{background:var(--cream-deep);}
+  .mp-frame{display:block;max-width:920px;margin:0 auto;border:1px solid var(--hairline);background:#fff;padding:14px;transition:transform .3s,box-shadow .3s;}
+  .mp-frame:hover{transform:translateY(-4px);box-shadow:0 18px 44px rgba(30,26,21,0.14);}
+  .mp-frame img{width:100%;height:auto;display:block;}
+  .mp-note{max-width:640px;margin:24px auto 0;text-align:center;font-size:13px;color:var(--muted);font-style:italic;}
+  .aerials{max-width:1100px;margin:44px auto 0;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  .aerials a{display:block;overflow:hidden;border:1px solid rgba(201,168,76,0.25);}
+  .aerials img{width:100%;height:280px;object-fit:cover;display:block;transition:transform .6s ease;}
+  .aerials a:hover img{transform:scale(1.06);}
+  @media(max-width:768px){.aerials{grid-template-columns:1fr;}.aerials img{height:300px;}}
+  .mp-split{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1.05fr;gap:56px;align-items:center;}
+  .mp-text .label{margin-bottom:14px;}
+  .mp-text h2{font-size:clamp(28px,3.2vw,42px);margin-bottom:20px;}
+  .mp-lead{font-size:15px;line-height:1.8;color:var(--muted);margin-bottom:34px;}
+  .mp-stats{display:grid;grid-template-columns:1fr 1fr;gap:30px 22px;}
+  .mp-n{font-family:'Cormorant Garamond',serif;font-size:42px;color:var(--gold);line-height:1;}
+  .mp-l{margin-top:6px;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);}
+  .mp-split .mp-frame{max-width:100%;display:flex;justify-content:center;margin:0;}
+  .mp-split .mp-frame img{max-height:82vh;width:auto;max-width:100%;}
+  @media(max-width:860px){.mp-split{grid-template-columns:1fr;gap:34px;}.mp-split .mp-frame img{max-height:none;}}
+
+  /* lifestyle gallery */
+  .gallery{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--hairline);}
+  .gal-card{background:var(--cream);padding:44px 28px;min-height:200px;display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden;}
+  .gal-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg, rgba(201,168,76,0.08), transparent 60%);}
+  .gal-tag{font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold-deep);margin-bottom:10px;position:relative;}
+  .gal-card h3{font-size:23px;position:relative;}
+  .gal-card .gsub{margin-top:6px;font-style:italic;font-family:'Cormorant Garamond',serif;color:var(--gold-deep);font-size:14px;position:relative;}
+  .render-pending{position:absolute;top:14px;right:16px;font-size:9px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);opacity:0.55;}
+  .gal-card.has-img{background-size:cover;background-position:center;min-height:320px;transition:transform .6s ease;}
+  .gal-card.has-img::before{background:linear-gradient(to top, rgba(18,15,11,0.9) 0%, rgba(18,15,11,0.3) 55%, rgba(18,15,11,0.12) 100%);}
+  .gal-card.has-img .gal-tag{color:#E8C879;}
+  .gal-card.has-img h3{color:#F5F2EC;}
+  .gal-card.has-img .gsub{color:#E8C879;}
+  .gal-card.has-img:hover{transform:scale(1.015);z-index:2;}
+  @media(max-width:900px){.gallery{grid-template-columns:1fr 1fr;}}
+  @media(max-width:600px){.gallery{grid-template-columns:1fr;}}
+
+  /* location */
+  .loc-tags{max-width:900px;margin:0 auto 56px;display:flex;justify-content:center;gap:48px;flex-wrap:wrap;}
+  .loc-tag{text-align:center;}
+  .loc-tag .lt-label{font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold-deep);}
+  .loc-tag .lt-sub{margin-top:4px;font-size:12px;color:var(--muted);}
+  .distances{max-width:740px;margin:0 auto;}
+  .dist-row{display:flex;align-items:baseline;gap:20px;padding:18px 0;border-bottom:1px solid var(--hairline);}
+  .dist-row:first-child{border-top:1px solid var(--hairline);}
+  .dist-time{font-family:'Cormorant Garamond',serif;font-size:26px;color:var(--gold-deep);width:90px;flex-shrink:0;}
+  .dist-place{font-size:14px;letter-spacing:0.02em;}
+  .map-wrap{max-width:1000px;margin:60px auto 0;text-align:center;}
+  .map-wrap iframe{width:100%;height:430px;border:1px solid var(--hairline-gold);display:block;filter:grayscale(0.25) contrast(1.05);}
+  .map-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:24px;}
+  .map-btn{display:inline-block;background:var(--ink);color:var(--cream);padding:15px 32px;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;font-weight:600;text-decoration:none;transition:transform .25s,border-color .25s,color .25s;}
+  .map-btn:hover{transform:translateY(-2px);}
+  .map-btn.alt{background:transparent;color:var(--ink);border:1px solid var(--ink);}
+  .map-btn.alt:hover{border-color:var(--gold-deep);color:var(--gold-deep);}
+
+  /* timeline */
+  .timeline-wrap{background:var(--cream-deep);}
+  .timeline{max-width:900px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;}
+  .tl-item{text-align:center;padding:0 12px;position:relative;}
+  .tl-item::before{content:'';position:absolute;top:8px;left:0;right:0;height:1px;background:var(--hairline-gold);}
+  .tl-item:first-child::before{left:50%;}
+  .tl-item:last-child::before{right:50%;}
+  .tl-dot{width:9px;height:9px;border-radius:50%;background:var(--gold-deep);margin:0 auto 18px;position:relative;z-index:2;}
+  .tl-year{font-family:'Cormorant Garamond',serif;font-size:30px;color:var(--ink);}
+  .tl-label{margin-top:6px;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);}
+  .tl-disclaimer{text-align:center;margin-top:48px;font-size:12px;color:var(--muted);font-style:italic;}
+  @media(max-width:768px){.timeline{grid-template-columns:1fr;gap:40px;} .tl-item::before{display:none;}}
+
+  /* payment */
+  .payment{text-align:center;}
+  .pay-tags{display:flex;justify-content:center;gap:14px;margin:30px 0 40px;flex-wrap:wrap;}
+  .pay-tag{border:1px solid var(--hairline-gold);padding:8px 18px;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold-deep);}
+  .payment p.body{max-width:560px;margin:0 auto;font-size:15px;line-height:1.8;color:var(--muted);}
+
+  footer{background:var(--ink);color:var(--cream);padding:64px 48px 40px;text-align:center;}
+  .footer-mark{font-family:'Cormorant Garamond',serif;font-size:26px;}
+  .footer-tag{margin-top:6px;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);}
+  .footer-links{margin-top:28px;display:flex;gap:30px;justify-content:center;flex-wrap:wrap;}
+  .footer-links a{color:rgba(240,233,220,0.7);text-decoration:none;font-size:12px;letter-spacing:0.06em;text-transform:uppercase;}
+  .footer-links a:hover{color:var(--gold);}
+  .footer-addr{margin-top:26px;font-size:12px;color:rgba(240,233,220,0.5);line-height:1.7;}
+  .footer-bottom{margin-top:30px;font-size:11px;color:rgba(240,233,220,0.4);}
+
+  /* WHATSAPP NUMBER — RESOLVED: brochure number +2 011 0000 39 39 (wa.me/201100003939)
+     confirmed correct and used in all buttons site-wide. Old +20 10 3386 0007 retired. */
+  /* ===== DARK THEME — match site identity ===== */
+  :root{--hairline:rgba(201,168,76,0.22);}
+  body{background:#080806;color:#F5F2EC;}
+  h1,h2,h3,.section-head h2{color:#F5F2EC;}
+  .label{color:#C9A84C;}
+  em{color:#E3C77E;}
+  nav{background:rgba(8,8,6,0.94);border-bottom:1px solid rgba(201,168,76,0.28);}
+  .nav-links a{color:#F5F2EC;}
+  .nav-links a:hover{color:#C9A84C;}
+  .btn-contact{background:#C9A84C;color:#080806!important;}
+  .btn-contact:hover{color:#080806!important;}
+  .hamburger span{background:#F5F2EC;}
+  @media(max-width:900px){.nav-links{background:rgba(8,8,6,0.98);}}
+  .hero{background:radial-gradient(ellipse 60% 45% at 50% 35%, rgba(201,168,76,0.06), transparent 70%), #080806;}
+  .hero .sub{color:#E3C77E;}
+  .hero .loc{color:#8A8578;}
+  .btn-primary{background:#C9A84C;color:#080806;}
+  .btn-outline{border-color:rgba(245,242,236,0.5);color:#F5F2EC;}
+  .btn-outline:hover{border-color:#C9A84C;color:#C9A84C;}
+  .excl{background:#0d0c09;}
+  .excl-intro p{color:#F5F2EC;}
+  .excl-tag .big{color:#C9A84C;}
+  .excl-tag .small{color:#8A8578;}
+  .stat-num{color:#C9A84C;}
+  .stat-label{color:#8A8578;}
+  .gal-card{background-color:#14110d;}
+  .gal-card h3{color:#F5F2EC;}
+  .gal-tag{color:#C9A84C;}
+  .gal-card .gsub{color:#E3C77E;}
+  .masterplan{background:#0d0c09;}
+  .mp-frame{background:#0f0e0b;border-color:rgba(201,168,76,0.3);}
+  .mp-note{color:#8A8578;}
+  .loc-tag .lt-label{color:#C9A84C;}
+  .loc-tag .lt-sub{color:#8A8578;}
+  .dist-time{color:#C9A84C;}
+  .dist-place{color:#F5F2EC;}
+  .timeline-wrap{background:#0d0c09;}
+  .tl-year{color:#F5F2EC;}
+  .tl-dot{background:#C9A84C;}
+  .tl-label{color:#8A8578;}
+  .tl-disclaimer{color:#8A8578;}
+  .payment p.body{color:#8A8578;}
+  .pay-tag{border-color:rgba(201,168,76,0.4);color:#C9A84C;}
+  .map-btn{background:#C9A84C;color:#080806;}
+  .map-btn.alt{background:transparent;color:#F5F2EC;border-color:#F5F2EC;}
+  .map-btn.alt:hover{color:#C9A84C;border-color:#C9A84C;}
+  .loc-map-img{max-width:1000px;margin:0 auto 44px;border:1px solid rgba(201,168,76,0.3);}
+  .loc-map-img img{width:100%;height:auto;display:block;}
+  .loc-split{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:stretch;}
+  .loc-split .loc-map-frame iframe{width:100%;height:100%;min-height:340px;border:1px solid var(--hairline-gold);display:block;filter:grayscale(0.25) contrast(1.05);}
+  .loc-split .loc-map-img{margin:0;max-width:none;}
+  .loc-split .loc-map-img img{width:100%;height:auto;display:block;}
+  .map-btns{margin-top:30px;}
+  @media(max-width:768px){.loc-split{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html"><img src="images/logo.svg" alt="Core Edge Developments" style="height:50px;width:auto;display:block"></a>
+  <div class="nav-links" id="navLinks">
+    <a href="index.html">Home</a>
+    <a href="index.html#about">About Us</a>
+    <a href="aura.html">Project</a>
+    <a href="aura.html#payment">Financing</a>
+    <a href="green-belt.html">Why Green Belt</a>
+    <a href="portfolio.html">Developer</a>
+    <a href="https://wa.me/201100003939" class="btn-contact">Contact Us</a>
+  </div>
+  <button class="hamburger" id="hamburgerBtn" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<section class="hero">
+  <img class="logo" src="images/aura-logo.svg" alt="AURA">
+  <div class="label">Residential Compound · By Core Edge</div>
+  <h1>A sanctuary of refined living</h1>
+  <p class="sub">Not merely a residence. A legacy.</p>
+  <div class="loc">6th of October City · Giza · Egypt</div>
+  <div class="hero-cta">
+    <a href="https://wa.me/201100003939" class="btn-primary">Reserve Your Villa</a>
+    <a href="#project" class="btn-outline">Discover AURA</a>
+  </div>
+  <div class="flourish">❧</div>
+</section>
+
+<section class="excl">
+  <div class="excl-intro reveal">
+    <div class="label">Private Villas Only</div>
+    <p style="margin-top:18px;">AURA is intentionally rare. A low-density community of just twenty detached villas — once they are gone, they are gone. This is ownership reserved for the few.</p>
+  </div>
+  <div class="excl-tags reveal">
+    <div class="excl-tag"><div class="big">Gated</div><div class="small">Private Community</div></div>
+    <div class="excl-tag"><div class="big">Low-Density</div><div class="small">Maximum Privacy · Twenty Owners</div></div>
+    <div class="excl-tag"><div class="big">Exclusive</div><div class="small">20 · Limited Availability</div></div>
+  </div>
+</section>
+
+<section id="project">
+  <div class="section-head reveal">
+    <div class="label">The Project</div>
+    <h2>Residential <em>Compound</em></h2>
+  </div>
+  <div class="stats reveal">
+    <div><div class="stat-num">20</div><div class="stat-label">Exclusive Villas</div></div>
+    <div><div class="stat-num">4</div><div class="stat-label">Levels Per Villa</div></div>
+    <div><div class="stat-num">10.5K</div><div class="stat-label">Compound m²</div></div>
+    <div><div class="stat-num">279</div><div class="stat-label">BUA m² Per Villa</div></div>
+    <div><div class="stat-num">Pool</div><div class="stat-label">Every Villa</div></div>
+  </div>
+</section>
+
+<section class="arch">
+  <div class="arch-intro reveal">
+    <div class="label">Architecture of Presence</div>
+    <h2 style="margin-top:16px;">A Blueprint for the <em>Exceptional</em></h2>
+    <p style="margin-top:24px;">Four levels of considered architecture — where every facade, every setback, and every material choice speaks the same language. Travertine. Glass. Presence. AURA is not built to impress. It is built to endure.</p>
+  </div>
+  <div class="arch-features reveal">
+    <div class="arch-feat"><h4>Boulevard Spine</h4><p>Tree-lined central axis with landscaped walkways</p></div>
+    <div class="arch-feat"><h4>Kids Area</h4><p>Dedicated play zones within the compound</p></div>
+    <div class="arch-feat"><h4>Private Pools</h4><p>Each villa features its own pool exclusively</p></div>
+    <div class="arch-feat"><h4>Gated Entry</h4><p>Single controlled access with AURA gate</p></div>
+    <div class="arch-feat"><h4>Open Gym</h4><p>Open-air fitness within the compound</p></div>
+  </div>
+  <div class="levels reveal">
+    <div class="level-row"><div class="level-tag">Level R · Roof Floor</div><div class="level-name">The Crown</div></div>
+    <div class="level-row"><div class="level-tag">Level 2 · Second Floor</div><div class="level-name">The Family Quarters</div></div>
+    <div class="level-row"><div class="level-tag">Level 1 · First Floor</div><div class="level-name">The Private Retreat</div></div>
+    <div class="level-row"><div class="level-tag">Level G · Ground Floor</div><div class="level-name">The Arrival</div></div>
+  </div>
+</section>
+
+<section class="masterplan">
+  <div class="mp-split">
+    <div class="mp-text reveal">
+      <div class="label">Master Plan</div>
+      <h2>The Compound, <em>at a Glance</em></h2>
+      <p class="mp-lead">Twenty private villas along a tree-lined boulevard — gated entry, a central landscaped spine, and dedicated amenity zones, all within a single low-density community.</p>
+      <div class="mp-stats">
+        <div><div class="mp-n">20</div><div class="mp-l">Private Villas</div></div>
+        <div><div class="mp-n">10.5K</div><div class="mp-l">Compound m²</div></div>
+        <div><div class="mp-n">4</div><div class="mp-l">Levels / Villa</div></div>
+        <div><div class="mp-n">279</div><div class="mp-l">BUA m² / Villa</div></div>
+      </div>
+    </div>
+    <a class="mp-frame reveal" href="images/master-plan.jpg" target="_blank" rel="noopener">
+      <img src="images/master-plan.jpg" alt="AURA compound master plan — 20 villas, boulevard, gated entry">
+    </a>
+  </div>
+  <div class="aerials reveal">
+    <a href="images/aerial-1.jpg" target="_blank" rel="noopener"><img src="images/aerial-1.jpg" alt="AURA boulevard at golden hour"></a>
+    <a href="images/aerial-2.jpg" target="_blank" rel="noopener"><img src="images/aerial-2.jpg" alt="AURA compound at night"></a>
+    <a href="images/aerial-3.jpg" target="_blank" rel="noopener"><img src="images/aerial-3.jpg" alt="AURA aerial at dusk"></a>
+  </div>
+</section>
+
+<section class="floors">
+  <div class="section-head reveal">
+    <div class="label">Floor Plans</div>
+    <h2>Four Levels, <em>In Detail</em></h2>
+  </div>
+  <div class="floor-grid reveal">
+    <a class="floor" href="images/floor-ground.jpg" target="_blank" rel="noopener"><img src="images/floor-ground.jpg" alt="AURA Ground floor plan"><span class="fcap"><span class="ft">Level G · Ground</span><span class="fn">The Arrival</span></span></a>
+    <a class="floor" href="images/floor-first.jpg" target="_blank" rel="noopener"><img src="images/floor-first.jpg" alt="AURA First floor plan"><span class="fcap"><span class="ft">Level 1 · First</span><span class="fn">The Private Retreat</span></span></a>
+    <a class="floor" href="images/floor-second.jpg" target="_blank" rel="noopener"><img src="images/floor-second.jpg" alt="AURA Second floor plan"><span class="fcap"><span class="ft">Level 2 · Second</span><span class="fn">The Family Quarters</span></span></a>
+    <a class="floor" href="images/floor-roof.jpg" target="_blank" rel="noopener"><img src="images/floor-roof.jpg" alt="AURA Roof floor plan"><span class="fcap"><span class="ft">Level R · Roof</span><span class="fn">The Crown</span></span></a>
+  </div>
+  <p style="text-align:center;margin-top:24px;font-size:12px;color:var(--muted);font-style:italic;">Tap any plan to view full size.</p>
+</section>
+
+<section style="padding-top:90px;">
+  <div class="section-head reveal">
+    <div class="label">The Lifestyle</div>
+    <h2>Arrive in <em>Style</em></h2>
+  </div>
+  <div class="gallery reveal">
+    <div class="gal-card has-img" style="background-image:url('images/aura-hero.jpg')"><div class="gal-tag">The Facade</div><h3>Where Every Morning Begins</h3><div class="gsub">In Gold</div></div>
+    <div class="gal-card has-img" style="background-image:url('images/g-pool.jpg')"><div class="gal-tag">Your Private Pool</div><h3>Every Evening, Yours Alone</h3></div>
+    <div class="gal-card has-img" style="background-image:url('images/g-master.jpg')"><div class="gal-tag">Master Suite</div><h3>A Retreat Above All Others</h3></div>
+    <div class="gal-card has-img" style="background-image:url('images/g-bathroom.jpg')"><div class="gal-tag">Bathroom</div><h3>Travertine Sanctuary</h3></div>
+    <div class="gal-card has-img" style="background-image:url('images/g-kitchen.jpg')"><div class="gal-tag">Kitchen</div><h3>Life, Lived at the Centre</h3></div>
+    <div class="gal-card has-img" style="background-image:url('images/g-kids.jpg')"><div class="gal-tag">Kids Area</div><h3>Where Little Ones Belong</h3><div class="gsub">Theirs to Explore</div></div>
+    <div class="gal-card has-img" style="background-image:url('images/g-gym.jpg')"><div class="gal-tag">Outdoor Gym</div><h3>Open Air. Open Potential.</h3><div class="gsub">Stronger, Every Morning</div></div>
+    <div class="gal-card has-img" style="background-image:url('images/g-gate.jpg')"><div class="gal-tag">Gated Entry</div><h3>The Same Gate, Every Day You Come Home</h3></div>
+    <div class="gal-card has-img" style="background-image:url('images/g-back.jpg')"><div class="gal-tag">The Backyard</div><h3>Where the Day Unwinds</h3><div class="gsub">Pool · Garden · Privacy</div></div>
+  </div>
+</section>
+
+<section id="location">
+  <div class="section-head reveal">
+    <div class="label">Location</div>
+    <h2>Where you <em>belong</em></h2>
+  </div>
+  <div class="loc-tags reveal">
+    <div class="loc-tag"><div class="lt-label">Private Community</div><div class="lt-sub">Gated</div></div>
+    <div class="loc-tag"><div class="lt-label">Sheikh Zayed</div><div class="lt-sub">Premium Address</div></div>
+    <div class="loc-tag"><div class="lt-label">Connected</div><div class="lt-sub">All Giza Arteries</div></div>
+  </div>
+  <div class="distances reveal">
+    <div class="dist-row"><div class="dist-time">20 min</div><div class="dist-place">Sphinx International Airport</div></div>
+    <div class="dist-row"><div class="dist-time">25 min</div><div class="dist-place">Mall of Arabia</div></div>
+    <div class="dist-row"><div class="dist-time">20 min</div><div class="dist-place">Cairo–Alex Desert Road</div></div>
+    <div class="dist-row"><div class="dist-time">20 min</div><div class="dist-place">SODIC Beverly Hills</div></div>
+    <div class="dist-row"><div class="dist-time">2 min</div><div class="dist-place">Mountain View Chillout Park</div></div>
+  </div>
+  <div class="loc-split reveal">
+    <div class="loc-map-frame">
+      <iframe src="https://maps.google.com/maps?q=29.996889,30.885319&z=15&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="AURA location on Google Maps"></iframe>
+    </div>
+    <div class="loc-map-img">
+      <img src="images/location-map.jpg" alt="AURA location map — Sheikh Zayed Green Belt, surrounding compounds and roads">
+    </div>
+  </div>
+  <div class="map-btns reveal">
+    <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=29.996889,30.885319" target="_blank" rel="noopener">Open in Google Maps →</a>
+    <a class="map-btn alt" href="https://earth.google.com/earth/d/1tmWRv5VLVflXLmmcGYCSzFz6mFzKVIM0?usp=sharing" target="_blank" rel="noopener">Explore in 3D · Google Earth →</a>
+  </div>
+</section>
+
+<section class="timeline-wrap">
+  <div class="section-head reveal">
+    <div class="label">Construction Timeline</div>
+    <h2>A Clear Path <em>To Handover</em></h2>
+  </div>
+  <div class="timeline reveal">
+    <div class="tl-item"><div class="tl-dot"></div><div class="tl-year">2026</div><div class="tl-label">Groundbreaking</div></div>
+    <div class="tl-item"><div class="tl-dot"></div><div class="tl-year">2027</div><div class="tl-label">Structure Complete</div></div>
+    <div class="tl-item"><div class="tl-dot"></div><div class="tl-year">2028</div><div class="tl-label">Finishing & Landscaping</div></div>
+    <div class="tl-item"><div class="tl-dot"></div><div class="tl-year">2029</div><div class="tl-label">Handover</div></div>
+  </div>
+  <div class="tl-disclaimer reveal">Projected schedule — contact Core Edge for the confirmed construction timeline.</div>
+</section>
+
+<section id="payment" class="payment">
+  <div class="section-head reveal">
+    <div class="label">Payment & Reservation</div>
+    <h2>Flexible Plans <em>Tailored to You</em></h2>
+  </div>
+  <div class="reveal">
+    <div class="pay-tags">
+      <div class="pay-tag">Tailored</div>
+      <div class="pay-tag">Structured</div>
+      <div class="pay-tag">Private</div>
+    </div>
+    <p class="body">AURA's payment structure is designed around the serious investor — not published, but arranged privately. One conversation is all it takes.</p>
+    <div style="margin-top:36px;">
+      <a href="https://wa.me/201100003939" class="btn-primary" style="display:inline-block;">Begin Your Conversation</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-mark">AURA</div>
+  <div class="footer-tag">By Core Edge</div>
+  <div class="footer-links">
+    <a href="https://wa.me/201100003939" target="_blank" rel="noopener">WhatsApp</a>
+    <a href="https://www.instagram.com/coreedgedev" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://www.facebook.com/coreedgedev" target="_blank" rel="noopener">Facebook</a>
+    <a href="mailto:info@coreedgedev.com">info@coreedgedev.com</a>
+  </div>
+  <div class="footer-addr">Hod 12 St · Boulevard Axis<br>6th of October City · Giza · Egypt</div>
+  <div class="footer-bottom">© 2026 Core Edge Development & Real Estate</div>
+</footer>
+
+<script>
+  /* staggered reveals */
+  document.querySelectorAll('.reveal').forEach(el=>{
+    const sibs=[...el.parentElement.children].filter(c=>c.classList.contains('reveal'));
+    const i=sibs.indexOf(el); if(i>0) el.style.transitionDelay=(i*0.09)+'s';
+  });
+  /* animated count-up for stat numbers */
+  function countUp(el){
+    if(el.dataset.counted) return; el.dataset.counted='1';
+    const raw=el.innerHTML, text=el.textContent.trim();
+    const m=text.match(/^(\d[\d,]*\.?\d*)(.*)$/s); if(!m) return;
+    const target=parseFloat(m[1].replace(/,/g,'')), dec=(m[1].split('.')[1]||'').length;
+    const span=raw.match(/<span[\s\S]*<\/span>/), suffix=m[2], dur=1500;
+    (function tick(now){
+      const t0=tick.t0||(tick.t0=now), p=Math.min((now-t0)/dur,1), e=1-Math.pow(1-p,3), v=(target*e).toFixed(dec);
+      el.innerHTML = span ? v+span[0] : v+suffix;
+      if(p<1) requestAnimationFrame(tick); else el.innerHTML=raw;
+    })(performance.now());
+  }
+  const io=new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){
+      e.target.classList.add('in');
+      e.target.querySelectorAll('.stat-num, .big-num').forEach(countUp);
+      io.unobserve(e.target);
+    }});
+  },{threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  /* nav solidifies on scroll */
+  const navEl=document.querySelector('nav');
+  addEventListener('scroll',()=>navEl.classList.toggle('scrolled', window.scrollY>40), {passive:true});
+
+  /* mobile menu */
+  const hamburger=document.getElementById('hamburgerBtn');
+  const navLinks=document.getElementById('navLinks');
+  hamburger.addEventListener('click', ()=> navLinks.classList.toggle('open'));
+</script>
+
+<div id="sp" style="position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,#C9A84C,#E3C77E);z-index:10000;transition:width .12s ease;"></div>
+<script>addEventListener('scroll',function(){var h=document.documentElement,m=h.scrollHeight-h.clientHeight;document.getElementById('sp').style.width=(m>0?(h.scrollTop/m*100):0)+'%';},{passive:true});</script>
+</body>
+</html>
