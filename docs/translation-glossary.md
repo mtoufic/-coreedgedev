@@ -39,9 +39,10 @@ Use natural, premium Arabic rather than literal translation:
 - Residential Compound → مجمع سكني خاص
 - Developer → المطور
 - Project → المشروع
-- Why Green Belt → لماذا الجرين بيلت
+- Why Green Belt → لماذا الحزام الأخضر
 - Contact Us → تواصل معنا
-- Green Belt may appear as `Green Belt` or `الجرين بيلت` depending on sentence flow.
+- Green Belt → الحزام الأخضر
+- West Cairo → غرب القاهرة
 
 ## 3. CTA translations
 
@@ -63,6 +64,7 @@ Keep the footer contact, social, and address section mostly in English and upper
 - SALES@COREEDGEDEV.COM
 - West Square Mall · 2nd Floor · S31
 - SODIC West Beverly Hills · Giza · Egypt
+- Legal footer only: Core Edge Development & real Estate 2026 ©
 
 Do not translate platform names, email addresses, URLs, or social handles.
 
@@ -70,8 +72,8 @@ Do not translate platform names, email addresses, URLs, or social handles.
 
 - Keep official address lines in English.
 - Keep `Giza` and `Egypt` in English in address blocks.
-- In marketing copy, `الشيخ زايد`, `6 أكتوبر`, and `الجرين بيلت` are acceptable for natural Arabic flow.
-- `West Cairo` may stay English for premium real-estate positioning.
+- In marketing copy, `الشيخ زايد`, `6 أكتوبر`, and `الحزام الأخضر` are acceptable for natural Arabic flow.
+- West Cairo must be rendered as `غرب القاهرة` in Arabic copy.
 
 ## 6. Number/unit rules
 
