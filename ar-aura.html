@@ -1,18 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AURA — By Core Edge</title>
-<meta name="description" content="AURA by Core Edge — a limited collection of twenty signature villas on Sheikh Zayed's Green Belt. Four levels, private pools, travertine and glass. 6th of October City, Giza.">
+<title>AURA — من Core Edge</title>
+<meta name="description" content="AURA من Core Edge — مجموعة محدودة من 20 فيلا Signature في الجرين بيلت بالشيخ زايد. خصوصية، مساحات راقية، وتصميم معماري يدوم.">
 <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
 <meta property="og:type" content="website">
 <meta property="og:title" content="AURA — By Core Edge">
-<meta property="og:description" content="Twenty signature villas. Not merely a residence. A legacy. On Sheikh Zayed's Green Belt.">
+<meta property="og:description" content="20 فيلا Signature. ليست مجرد إقامة، بل عنوان يُورث في الجرين بيلت بالشيخ زايد.">
 <meta property="og:image" content="https://coreedgedev.com/images/aura-logo.svg">
 <meta property="og:url" content="https://coreedgedev.com/aura.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@400;500;600;700&family=Noto+Kufi+Arabic:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
     --cream:#F0E9DC;
@@ -26,9 +26,9 @@
   }
   *{margin:0;padding:0;box-sizing:border-box;}
   html{scroll-behavior:smooth;}
-  body{background:var(--cream);color:var(--ink);font-family:'Montserrat',sans-serif;overflow-x:hidden;}
-  .label{font-size:11px;font-weight:600;letter-spacing:0.32em;text-transform:uppercase;color:var(--gold-deep);}
-  h1,h2,h3{font-family:'Cormorant Garamond',serif;font-weight:500;line-height:1.08;color:var(--ink);}
+  body{background:var(--cream);color:var(--ink);font-family:'Noto Kufi Arabic','Montserrat',sans-serif;overflow-x:hidden;direction:rtl;}
+  .label{font-size:11px;font-weight:600;letter-spacing:0.05em;text-transform:none;color:var(--gold-deep);}
+  h1,h2,h3{font-family:'Noto Naskh Arabic','Cormorant Garamond',serif;font-weight:500;line-height:1.08;color:var(--ink);}
   em{font-style:italic;color:var(--gold-deep);}
 
   nav{
@@ -39,9 +39,9 @@
   }
   .nav-mark{font-family:'Cormorant Garamond',serif;font-size:20px;letter-spacing:0.08em;color:var(--ink);}
   .nav-links{display:flex;gap:28px;align-items:center;}
-  .nav-links a{color:var(--ink);text-decoration:none;font-size:11.5px;letter-spacing:0.12em;text-transform:uppercase;font-weight:500;opacity:0.78;}
+  .nav-links a{color:var(--ink);text-decoration:none;font-size:11.5px;letter-spacing:0.04em;text-transform:none;font-weight:500;opacity:0.78;}
   
-  .lang-switch{display:flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid var(--hairline);border-radius:999px;background:rgba(201,168,76,0.08);color:var(--muted);font-size:11.5px;letter-spacing:0.12em;text-transform:uppercase;}
+  .lang-switch{display:flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid var(--hairline);border-radius:999px;background:rgba(201,168,76,0.08);color:var(--muted);font-size:11.5px;letter-spacing:0.04em;text-transform:none;}
   .lang-switch a{opacity:0.78;}
   .lang-switch a.active{color:var(--gold-deep);opacity:1;}
   .lang-switch .divider{color:rgba(245,242,236,0.28);}
@@ -122,14 +122,14 @@
   .levels{max-width:760px;margin:0 auto;}
   .level-row{display:flex;justify-content:space-between;align-items:baseline;padding:26px 0;border-bottom:1px solid rgba(201,168,76,0.22);}
   .level-row:first-child{border-top:1px solid rgba(201,168,76,0.22);}
-  .level-tag{font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);width:160px;flex-shrink:0;}
+  .level-tag{font-size:11px;letter-spacing:0.04em;text-transform:none;color:var(--gold);width:160px;flex-shrink:0;}
   .level-name{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;color:var(--cream);}
   .floor-grid{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
   .floor{border:1px solid var(--hairline);background:#fff;padding:12px;text-decoration:none;display:block;transition:transform .3s, box-shadow .3s;}
   .floor:hover{transform:translateY(-5px);box-shadow:0 18px 44px rgba(30,26,21,0.14);}
   .floor img{width:100%;height:auto;display:block;}
   .floor .fcap{display:block;text-align:center;padding:14px 4px 4px;}
-  .floor .ft{display:block;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold-deep);}
+  .floor .ft{display:block;font-size:10px;letter-spacing:0.04em;text-transform:none;color:var(--gold-deep);}
   .floor .fn{display:block;margin-top:5px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;color:var(--ink);}
   @media(max-width:900px){.floor-grid{grid-template-columns:1fr 1fr;}}
   @media(max-width:560px){.floor-grid{grid-template-columns:1fr;}}
@@ -312,28 +312,28 @@
 <body>
 
 <nav>
-  <a href="index.html"><img src="images/logo.svg" alt="Core Edge Developments" style="height:64px;width:auto;display:block"></a>
+  <a href="ar.html"><img src="images/logo.svg" alt="Core Edge Developments" style="height:64px;width:auto;display:block"></a>
   <div class="nav-links" id="navLinks">
-    <a href="index.html">Home</a>
-    <a href="index.html#about">About Us</a>
-    <a href="portfolio.html">Developer</a>
-    <a href="aura.html">Project</a>
-    <a href="green-belt.html">Why Green Belt</a>
-<div class="lang-switch" aria-label="Language switch"><a href="aura.html" class="active" lang="en" aria-current="page">EN</a><span class="divider">|</span><a href="ar-aura.html" lang="ar" dir="rtl">عربي</a></div>
-<a href="https://wa.me/201100003939" class="btn-contact">Contact Us</a>
+    <a href="ar.html">الرئيسية</a>
+    <a href="ar.html#about">عن Core Edge</a>
+    <a href="ar-portfolio.html">المطور</a>
+    <a href="ar-aura.html">المشروع</a>
+    <a href="ar-green-belt.html">لماذا الجرين بيلت</a>
+<div class="lang-switch" aria-label="Language switch"><a href="aura.html" lang="en" dir="ltr">EN</a><span class="divider">|</span><a href="ar-aura.html" class="active" lang="ar" aria-current="page">عربي</a></div>
+<a href="https://wa.me/201100003939" class="btn-contact">تواصل معنا</a>
   </div>
-  <button class="hamburger" id="hamburgerBtn" aria-label="Menu"><span></span><span></span><span></span></button>
+  <button class="hamburger" id="hamburgerBtn" aria-label="القائمة"><span></span><span></span><span></span></button>
 </nav>
 
 <section class="hero">
   <img class="logo" src="images/aura-logo.svg" alt="AURA">
   <div class="label">Residential Compound · By Core Edge</div>
-  <h1>A sanctuary of refined living</h1>
-  <p class="sub">Not merely a residence. A legacy.</p>
+  <h1>عنوان هادئ لحياة أكثر رُقيًا</h1>
+  <p class="sub">ليست مجرد إقامة. إنها قيمة تُورث.</p>
   <div class="loc">6th of October City · Giza · Egypt</div>
   <div class="hero-cta">
-    <a href="https://wa.me/201100003939" class="btn-primary">Reserve Your Villa</a>
-    <a href="#project" class="btn-outline">Discover AURA</a>
+    <a href="https://wa.me/201100003939" class="btn-primary">احجز فيلتك</a>
+    <a href="#project" class="btn-outline">اكتشف AURA</a>
   </div>
   <div class="flourish">❧</div>
 </section>
@@ -341,10 +341,10 @@
 <section class="excl">
   <div class="excl-intro reveal">
     <div class="label">Private Villas Only</div>
-    <p style="margin-top:18px;">AURA is intentionally rare. A low-density community of just twenty detached villas — once they are gone, they are gone. This is ownership reserved for the few.</p>
+    <p style="margin-top:18px;">AURA صُممت لتكون نادرة بطبيعتها: مجتمع Low-Density يضم 20 فيلا مستقلة فقط. عند اكتمال الحجز، لن تتكرر الفرصة. ملكية مخصصة لمن يبحثون عن الخصوصية والقيمة.</p>
   </div>
   <div class="excl-tags reveal">
-    <div class="excl-tag"><div class="big">Gated</div><div class="small">Private Community</div></div>
+    <div class="excl-tag"><div class="big">Gated</div><div class="small">مجتمع خاص</div></div>
     <div class="excl-tag"><div class="big">Low-Density</div><div class="small">Maximum Privacy · Twenty Owners</div></div>
     <div class="excl-tag"><div class="big">Exclusive</div><div class="small">20 · Limited Availability</div></div>
   </div>
@@ -353,7 +353,7 @@
 <section id="project">
   <div class="section-head reveal">
     <div class="label">The Project</div>
-    <h2>Residential <em>Compound</em></h2>
+    <h2>مجمع سكني <em>خاص</em></h2>
   </div>
   <div class="stats reveal">
     <div><div class="stat-num">20</div><div class="stat-label">Exclusive Villas</div></div>
@@ -367,15 +367,15 @@
 <section class="arch">
   <div class="arch-intro reveal">
     <div class="label">Architecture of Presence</div>
-    <h2 style="margin-top:16px;">A Blueprint for the <em>Exceptional</em></h2>
-    <p style="margin-top:24px;">Four levels of considered architecture — where every facade, every setback, and every material choice speaks the same language. Travertine. Glass. Presence. AURA is not built to impress. It is built to endure.</p>
+    <h2 style="margin-top:16px;">تصميم معماري <em>للاستثناء</em></h2>
+    <p style="margin-top:24px;">أربعة مستويات بتفاصيل معمارية محسوبة؛ واجهات، ارتدادات، وخامات تتحدث بلغة واحدة: الحجر، الزجاج، والحضور الهادئ. AURA لا تسعى فقط للإبهار، بل للبقاء.</p>
   </div>
   <div class="arch-features reveal">
-    <div class="arch-feat"><h4>Boulevard Spine</h4><p>Tree-lined central axis with landscaped walkways</p></div>
-    <div class="arch-feat"><h4>Kids Area</h4><p>Dedicated play zones within the compound</p></div>
-    <div class="arch-feat"><h4>Private Pools</h4><p>Each villa features its own pool exclusively</p></div>
-    <div class="arch-feat"><h4>Gated Entry</h4><p>Single controlled access with AURA gate</p></div>
-    <div class="arch-feat"><h4>Open Gym</h4><p>Open-air fitness within the compound</p></div>
+    <div class="arch-feat"><h4>محور Boulevard</h4><p>محور مركزي مزروع بممرات طبيعية راقية</p></div>
+    <div class="arch-feat"><h4>Kids Area</h4><p>مساحات لعب مخصصة داخل المجتمع</p></div>
+    <div class="arch-feat"><h4>Private Pools</h4><p>كل فيلا تضم حمام سباحة خاص بها</p></div>
+    <div class="arch-feat"><h4>Gated Entry</h4><p>مدخل واحد منظم عبر بوابة AURA</p></div>
+    <div class="arch-feat"><h4>Open Gym</h4><p>مساحة رياضية مفتوحة داخل المجتمع</p></div>
   </div>
   <div class="levels reveal">
     <div class="level-row"><div class="level-tag">Level B · Basement Floor</div><div class="level-name">The Foundation</div></div>
@@ -389,8 +389,8 @@
   <div class="mp-split">
     <div class="mp-text reveal">
       <div class="label">Master Plan</div>
-      <h2>The Compound, <em>at a Glance</em></h2>
-      <p class="mp-lead">Twenty private villas along a tree-lined boulevard — gated entry, a central landscaped spine, and dedicated amenity zones, all within a single low-density community.</p>
+      <h2>نظرة سريعة على <em>المجتمع</em></h2>
+      <p class="mp-lead">20 فيلا خاصة على محور أخضر، بوابة Gated، قلب لاندسكيب مركزي، ومناطق خدمات مختارة داخل مجتمع Low-Density واحد.</p>
       <div class="mp-stats">
         <div><div class="mp-n">20</div><div class="mp-l">Private Villas</div></div>
         <div><div class="mp-n">10.5K</div><div class="mp-l">Compound m²</div></div>
@@ -412,7 +412,7 @@
 <section class="floors">
   <div class="section-head reveal">
     <div class="label">Floor Plans</div>
-    <h2>Four Levels, <em>In Detail</em></h2>
+    <h2>أربعة مستويات <em>بتفاصيل مدروسة</em></h2>
   </div>
   <div class="floor-grid reveal">
     <a class="floor" href="images/floor-ground.jpg" target="_blank" rel="noopener"><img src="images/floor-ground.jpg" alt="AURA Basement floor plan"><span class="fcap"><span class="ft">Level B · Basement</span><span class="fn">The Foundation</span></span></a>
@@ -420,24 +420,24 @@
     <a class="floor" href="images/floor-second.jpg" target="_blank" rel="noopener"><img src="images/floor-second.jpg" alt="AURA First floor plan"><span class="fcap"><span class="ft">Level 1 · First</span><span class="fn">The Arrival</span></span></a>
     <a class="floor" href="images/floor-roof.jpg" target="_blank" rel="noopener"><img src="images/floor-roof.jpg" alt="AURA Roof floor plan"><span class="fcap"><span class="ft">Level R · Roof</span><span class="fn">The Crown</span></span></a>
   </div>
-  <p style="text-align:center;margin-top:24px;font-size:12px;color:var(--muted);font-style:italic;">Tap any plan to view full size.</p>
+  <p style="text-align:center;margin-top:24px;font-size:12px;color:var(--muted);font-style:italic;">اضغط على أي مخطط لعرضه بالحجم الكامل.</p>
 </section>
 
 <section style="padding-top:90px;">
   <div class="section-head reveal">
     <div class="label">The Lifestyle</div>
-    <h2>Arrive in <em>Style</em></h2>
+    <h2>وصول يليق <em>بأسلوبك</em></h2>
   </div>
   <div class="gallery reveal">
-    <div class="gal-card has-img" onclick="openLightbox(0)" style="background-image:url('images/aura-hero.jpg')"><div class="gal-tag">The Facade</div><h3>Where Every Morning Begins</h3><div class="gsub">In Gold</div></div>
-    <div class="gal-card has-img" onclick="openLightbox(1)" style="background-image:url('images/g-pool.jpg')"><div class="gal-tag">Your Private Pool</div><h3>Every Evening, Yours Alone</h3></div>
-    <div class="gal-card has-img" onclick="openLightbox(2)" style="background-image:url('images/g-master.jpg')"><div class="gal-tag">Master Suite</div><h3>A Retreat Above All Others</h3></div>
-    <div class="gal-card has-img" onclick="openLightbox(3)" style="background-image:url('images/g-bathroom.jpg')"><div class="gal-tag">Bathroom</div><h3>Travertine Sanctuary</h3></div>
-    <div class="gal-card has-img" onclick="openLightbox(4)" style="background-image:url('images/g-kitchen.jpg')"><div class="gal-tag">Kitchen</div><h3>Life, Lived at the Centre</h3></div>
-    <div class="gal-card has-img" onclick="openLightbox(5)" style="background-image:url('images/g-kids.jpg')"><div class="gal-tag">Kids Area</div><h3>Where Little Ones Belong</h3><div class="gsub">Theirs to Explore</div></div>
-    <div class="gal-card has-img" onclick="openLightbox(6)" style="background-image:url('images/g-gym.jpg')"><div class="gal-tag">Outdoor Gym</div><h3>Open Air. Open Potential.</h3><div class="gsub">Stronger, Every Morning</div></div>
-    <div class="gal-card has-img" onclick="openLightbox(7)" style="background-image:url('images/g-gate.jpg')"><div class="gal-tag">Gated Entry</div><h3>The Same Gate, Every Day You Come Home</h3></div>
-    <div class="gal-card has-img" onclick="openLightbox(8)" style="background-image:url('images/g-back.jpg')"><div class="gal-tag">The Backyard</div><h3>Where the Day Unwinds</h3><div class="gsub">Pool · Garden · Privacy</div></div>
+    <div class="gal-card has-img" onclick="openLightbox(0)" style="background-image:url('images/aura-hero.jpg')"><div class="gal-tag">الواجهة</div><h3>حيث يبدأ كل صباح</h3><div class="gsub">بلمسة ذهبية</div></div>
+    <div class="gal-card has-img" onclick="openLightbox(1)" style="background-image:url('images/g-pool.jpg')"><div class="gal-tag">حمام سباحتك الخاص</div><h3>كل مساء لك وحدك</h3></div>
+    <div class="gal-card has-img" onclick="openLightbox(2)" style="background-image:url('images/g-master.jpg')"><div class="gal-tag">Master Suite</div><h3>ملاذ أكثر خصوصية</h3></div>
+    <div class="gal-card has-img" onclick="openLightbox(3)" style="background-image:url('images/g-bathroom.jpg')"><div class="gal-tag">Bathroom</div><h3>هدوء الحجر الطبيعي</h3></div>
+    <div class="gal-card has-img" onclick="openLightbox(4)" style="background-image:url('images/g-kitchen.jpg')"><div class="gal-tag">Kitchen</div><h3>قلب الحياة اليومية</h3></div>
+    <div class="gal-card has-img" onclick="openLightbox(5)" style="background-image:url('images/g-kids.jpg')"><div class="gal-tag">Kids Area</div><h3>مساحتهم الصغيرة داخل المجتمع</h3><div class="gsub">للاكتشاف واللعب</div></div>
+    <div class="gal-card has-img" onclick="openLightbox(6)" style="background-image:url('images/g-gym.jpg')"><div class="gal-tag">Outdoor Gym</div><h3>هواء مفتوح وطاقة أكبر</h3><div class="gsub">بداية أقوى كل صباح</div></div>
+    <div class="gal-card has-img" onclick="openLightbox(7)" style="background-image:url('images/g-gate.jpg')"><div class="gal-tag">Gated Entry</div><h3>بوابة واحدة تعود إليها كل يوم</h3></div>
+    <div class="gal-card has-img" onclick="openLightbox(8)" style="background-image:url('images/g-back.jpg')"><div class="gal-tag">الحديقة الخلفية</div><h3>حيث يهدأ اليوم</h3><div class="gsub">Pool · Garden · Privacy</div></div>
   </div>
 </section>
 
@@ -461,10 +461,10 @@
 <section id="location">
   <div class="section-head reveal">
     <div class="label">Location</div>
-    <h2>Where you <em>belong</em></h2>
+    <h2>الموقع الذي <em>تنتمي إليه</em></h2>
   </div>
   <div class="loc-tags reveal">
-    <div class="loc-tag"><div class="lt-label">Private Community</div><div class="lt-sub">Gated</div></div>
+    <div class="loc-tag"><div class="lt-label">مجتمع خاص</div><div class="lt-sub">Gated</div></div>
     <div class="loc-tag"><div class="lt-label">Sheikh Zayed</div><div class="lt-sub">Premium Address</div></div>
     <div class="loc-tag"><div class="lt-label">Connected</div><div class="lt-sub">All Giza Arteries</div></div>
   </div>
@@ -484,15 +484,15 @@
     </div>
   </div>
   <div class="map-btns reveal">
-    <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=29.996889,30.885319" target="_blank" rel="noopener">Open in Google Maps →</a>
-    <a class="map-btn alt" href="https://earth.google.com/earth/d/1tmWRv5VLVflXLmmcGYCSzFz6mFzKVIM0?usp=sharing" target="_blank" rel="noopener">Explore in 3D · Google Earth →</a>
+    <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=29.996889,30.885319" target="_blank" rel="noopener">افتح على Google Maps ←</a>
+    <a class="map-btn alt" href="https://earth.google.com/earth/d/1tmWRv5VLVflXLmmcGYCSzFz6mFzKVIM0?usp=sharing" target="_blank" rel="noopener">استكشف 3D · Google Earth ←</a>
   </div>
 </section>
 
 <section class="timeline-wrap">
   <div class="section-head reveal">
     <div class="label">Construction Timeline</div>
-    <h2>A Clear Path <em>To Handover</em></h2>
+    <h2>مسار واضح <em>حتى الاستلام</em></h2>
   </div>
   <div class="timeline reveal">
     <div class="tl-item"><div class="tl-dot"></div><div class="tl-year">2026</div><div class="tl-label">Groundbreaking</div></div>
@@ -506,7 +506,7 @@
 <section id="payment" class="payment">
   <div class="section-head reveal">
     <div class="label">Payment & Reservation</div>
-    <h2>Flexible Plans <em>Tailored to You</em></h2>
+    <h2>خطط مرنة <em>مصممة لك</em></h2>
   </div>
   <div class="reveal">
     <div class="pay-tags">
@@ -514,9 +514,9 @@
       <div class="pay-tag">Structured</div>
       <div class="pay-tag">Private</div>
     </div>
-    <p class="body">AURA's payment structure is designed around the serious investor — not published, but arranged privately. One conversation is all it takes.</p>
+    <p class="body">هيكل السداد في AURA مصمم للعميل الجاد والمستثمر الواعي؛ لا يُعرض بشكل عام، بل يتم ترتيبه بشكل خاص. محادثة واحدة تكفي للبدء.</p>
     <div style="margin-top:36px;">
-      <a href="https://wa.me/201100003939" class="btn-primary" style="display:inline-block;">Begin Your Conversation</a>
+      <a href="https://wa.me/201100003939" class="btn-primary" style="display:inline-block;">ابدأ المحادثة</a>
     </div>
   </div>
 </section>
@@ -573,15 +573,15 @@
 
   /* ===== GALLERY LIGHTBOX ===== */
   const lbData=[
-    {img:'images/aura-hero.jpg', tag:'The Facade', title:'Where Every Morning Begins', sub:'In Gold'},
-    {img:'images/g-pool.jpg', tag:'Your Private Pool', title:'Every Evening, Yours Alone', sub:''},
-    {img:'images/g-master.jpg', tag:'Master Suite', title:'A Retreat Above All Others', sub:''},
-    {img:'images/g-bathroom.jpg', tag:'Bathroom', title:'Travertine Sanctuary', sub:''},
-    {img:'images/g-kitchen.jpg', tag:'Kitchen', title:'Life, Lived at the Centre', sub:''},
-    {img:'images/g-kids.jpg', tag:'Kids Area', title:'Where Little Ones Belong', sub:'Theirs to Explore'},
-    {img:'images/g-gym.jpg', tag:'Outdoor Gym', title:'Open Air. Open Potential.', sub:'Stronger, Every Morning'},
-    {img:'images/g-gate.jpg', tag:'Gated Entry', title:'The Same Gate, Every Day You Come Home', sub:''},
-    {img:'images/g-back.jpg', tag:'The Backyard', title:'Where the Day Unwinds', sub:'Pool · Garden · Privacy'}
+    {img:'images/aura-hero.jpg', tag:'الواجهة', title:'حيث يبدأ كل صباح', sub:'بلمسة ذهبية'},
+    {img:'images/g-pool.jpg', tag:'حمام سباحتك الخاص', title:'كل مساء لك وحدك', sub:''},
+    {img:'images/g-master.jpg', tag:'Master Suite', title:'ملاذ أكثر خصوصية', sub:''},
+    {img:'images/g-bathroom.jpg', tag:'Bathroom', title:'هدوء الحجر الطبيعي', sub:''},
+    {img:'images/g-kitchen.jpg', tag:'Kitchen', title:'قلب الحياة اليومية', sub:''},
+    {img:'images/g-kids.jpg', tag:'Kids Area', title:'مساحتهم الصغيرة داخل المجتمع', sub:'للاكتشاف واللعب'},
+    {img:'images/g-gym.jpg', tag:'Outdoor Gym', title:'هواء مفتوح وطاقة أكبر', sub:'بداية أقوى كل صباح'},
+    {img:'images/g-gate.jpg', tag:'Gated Entry', title:'بوابة واحدة تعود إليها كل يوم', sub:''},
+    {img:'images/g-back.jpg', tag:'الحديقة الخلفية', title:'حيث يهدأ اليوم', sub:'Pool · Garden · Privacy'}
   ];
   let lbIndex=0;
   const lbEl=document.getElementById('lightbox');
