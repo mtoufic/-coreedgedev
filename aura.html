@@ -40,6 +40,11 @@
   .nav-mark{font-family:'Cormorant Garamond',serif;font-size:20px;letter-spacing:0.08em;color:var(--ink);}
   .nav-links{display:flex;gap:28px;align-items:center;}
   .nav-links a{color:var(--ink);text-decoration:none;font-size:11.5px;letter-spacing:0.12em;text-transform:uppercase;font-weight:500;opacity:0.78;}
+  
+  .lang-switch{display:flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid var(--hairline);border-radius:999px;background:rgba(201,168,76,0.08);color:var(--muted);font-size:11.5px;letter-spacing:0.12em;text-transform:uppercase;}
+  .lang-switch a{opacity:0.78;}
+  .lang-switch a.active{color:var(--gold-deep);opacity:1;}
+  .lang-switch .divider{color:rgba(245,242,236,0.28);}
   .nav-links a:hover{opacity:1;color:var(--gold-deep);}
   .btn-contact{
     background:var(--gold-deep);color:var(--cream)!important;opacity:1!important;
@@ -314,7 +319,8 @@
     <a href="portfolio.html">Developer</a>
     <a href="aura.html">Project</a>
     <a href="green-belt.html">Why Green Belt</a>
-    <a href="https://wa.me/201100003939" class="btn-contact">Contact Us</a>
+<div class="lang-switch" aria-label="Language switch"><a href="aura.html" class="active" lang="en" aria-current="page">EN</a><span class="divider">|</span><a href="ar-aura.html" lang="ar" dir="rtl">عربي</a></div>
+<a href="https://wa.me/201100003939" class="btn-contact">Contact Us</a>
   </div>
   <button class="hamburger" id="hamburgerBtn" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>

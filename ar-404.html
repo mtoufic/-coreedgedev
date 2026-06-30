@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>الصفحة غير موجودة — Core Edge</title>
+<link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#080806;--gold:#C9A84C;--cream:#F5F2EC;--muted:#8A8578;--hairline:rgba(201,168,76,0.28);}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:var(--ink);color:var(--cream);font-family:'Montserrat',sans-serif;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 24px;}
+  .mark{font-family:'Cormorant Garamond',serif;font-size:24px;letter-spacing:0.08em;margin-bottom:40px;}
+  .mark span{color:var(--gold);}
+  .code{font-family:'Cormorant Garamond',serif;font-size:clamp(70px,14vw,130px);color:var(--gold);line-height:1;}
+  h1{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(26px,4vw,40px);margin-top:10px;}
+  p{margin-top:18px;color:var(--muted);font-size:15px;max-width:420px;line-height:1.7;}
+  a{margin-top:36px;display:inline-block;background:var(--gold);color:var(--ink);padding:14px 30px;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;font-weight:600;text-decoration:none;transition:transform 0.25s;}
+  a:hover{transform:translateY(-2px);}
+  .lang-switch{position:fixed;top:22px;right:22px;display:flex;gap:8px;padding:8px 12px;border:1px solid var(--hairline);border-radius:999px;background:rgba(201,168,76,0.08);font-size:11.5px;letter-spacing:0.04em;text-transform:none;}
+  .lang-switch a{margin:0;background:transparent;color:var(--cream);padding:0;opacity:.78;}
+  .lang-switch a.active{color:var(--gold);opacity:1;}
+  .lang-switch .divider{color:rgba(245,242,236,.28);}
+  nav{direction:ltr;}
+</style>
+</head>
+<body>
+  <div class="lang-switch" aria-label="Language switch"><a href="404.html" lang="en" dir="ltr">EN</a><span class="divider">|</span><a href="ar-404.html" class="active" lang="ar" aria-current="page">عربي</a></div>
+  <div class="mark">CORE <span>EDGE</span></div>
+  <div class="code">404</div>
+  <h1>هذه الصفحة غير موجودة</h1>
+  <p>الصفحة التي تبحث عنها ليست هنا. دعنا نعيدك إلى Core Edge.</p>
+  <a href="ar.html">العودة للرئيسية</a>
+</body>
+</html>
