@@ -52,36 +52,41 @@
   }
   .nav-mark{font-family:'Cormorant Garamond',serif;font-size:20px;letter-spacing:0.08em;color:var(--cream);}
   .nav-mark span{color:var(--gold);}
-  .nav-links{display:flex;gap:28px;align-items:center;}
+  .nav-menu{display:flex;align-items:center;flex:1;justify-content:space-between;margin-left:40px;}
+  .nav-links{display:flex;gap:28px;align-items:center;flex:1;justify-content:center;}
   .nav-links a{
     color:var(--cream);text-decoration:none;font-size:11.5px;letter-spacing:0.04em;
     text-transform:none;font-weight:500;opacity:0.78;transition:opacity 0.2s;
   }
+  .nav-right{display:flex;align-items:center;gap:16px;}
   .lang-switch{
     display:flex;align-items:center;gap:8px;
     padding:8px 12px;border:1px solid var(--hairline);border-radius:999px;
     background:rgba(201,168,76,0.06);color:var(--muted);
     font-size:11.5px;letter-spacing:0.04em;
   }
-  .lang-switch a{opacity:0.78;}
+  .lang-switch a{opacity:0.78;text-decoration:none;}
   .lang-switch a.active{color:var(--gold);opacity:1;}
   .lang-switch .divider{color:rgba(245,242,236,0.24);}
   .nav-links a:hover{opacity:1;color:var(--gold);}
   .btn-contact{
-    background:var(--gold);color:var(--ink)!important;opacity:1!important;
-    padding:10px 22px;font-weight:700;letter-spacing:0.12em;transition:transform 0.2s;
+    background:transparent;border:1px solid var(--gold);color:var(--gold)!important;opacity:1!important;
+    padding:10px 22px;font-weight:600;letter-spacing:0.04em;text-decoration:none;
+    transition:transform 0.2s, background 0.2s, color 0.2s;
   }
-  .btn-contact:hover{transform:translateY(-2px);color:var(--ink)!important;}
+  .btn-contact:hover{transform:translateY(-2px);background:var(--gold);color:var(--ink)!important;}
   .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:6px;}
   .hamburger span{width:22px;height:2px;background:var(--cream);}
   @media(max-width:900px){
     nav{padding:18px 22px;}
-    .nav-links{
-      display:none;position:absolute;top:100%;left:0;right:0;
+    .nav-menu{
+      display:none;position:absolute;top:100%;left:0;right:0;margin-left:0;
       background:rgba(8,8,6,0.98);flex-direction:column;align-items:flex-start;
       padding:22px 26px 28px;gap:18px;border-bottom:1px solid var(--hairline);
     }
-    .nav-links.open{display:flex;}
+    .nav-menu.open{display:flex;}
+    .nav-links{flex-direction:column;align-items:flex-start;gap:18px;}
+    .nav-right{flex-direction:column;align-items:flex-start;gap:14px;}
     .btn-contact{margin-top:6px;}
     .hamburger{display:flex;}
   }
@@ -143,7 +148,15 @@
   }
   .stat-num{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,5vw,56px);color:var(--gold);line-height:1;}
   .stat-label{margin-top:10px;font-size:11px;letter-spacing:0.04em;text-transform:none;color:var(--muted);}
-  @media(max-width:768px){.stats{grid-template-columns:repeat(2,1fr);gap:36px;}}
+  .stats > div{position:relative;}
+  .stats > div:not(:last-child)::after{
+    content:'';position:absolute;top:50%;inset-inline-end:0;transform:translateY(-50%);
+    width:1px;height:48px;background:var(--hairline);
+  }
+  @media(max-width:768px){
+    .stats{grid-template-columns:repeat(2,1fr);gap:36px;}
+    .stats > div:nth-child(2)::after{display:none;}
+  }
 
   /* ===== SECTION SHELL ===== */
   section{padding:120px 24px;}
@@ -157,7 +170,8 @@
   .hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;}
   .hero-overlay{position:absolute;inset:0;background:linear-gradient(rgba(8,8,6,0.68),rgba(8,8,6,0.55) 45%,rgba(8,8,6,0.92));z-index:-1;}
   .hero > .label,.hero > h1,.hero > .sub,.hero > .hero-cta,.hero > .flourish{position:relative;z-index:1;}
-  nav{transition:padding .3s ease, box-shadow .3s ease;}
+  nav{opacity:0;pointer-events:none;transition:opacity .5s ease, padding .3s ease, box-shadow .3s ease;}
+  nav.visible{opacity:1;pointer-events:auto;}
   nav.scrolled{padding-top:13px;padding-bottom:13px;box-shadow:0 12px 34px rgba(0,0,0,0.5);}
   .stat-num{font-variant-numeric:tabular-nums;}
   #loader{position:fixed;inset:0;z-index:9999;background:#080806;display:flex;align-items:center;justify-content:center;transition:opacity .7s ease,visibility .7s;}
@@ -172,6 +186,52 @@
   .pillar h3{margin-top:14px;font-size:22px;letter-spacing:0.01em;color:var(--cream);font-style:normal;}
   .pillar p{margin-top:14px;font-size:14px;line-height:1.75;color:var(--muted);font-weight:400;}
   @media(max-width:768px){.pillars{grid-template-columns:1fr;gap:40px;}}
+
+  /* ===== NUMBERED FEATURE ROWS ===== */
+  .feature-rows{max-width:920px;margin:0 auto;}
+  .feature-row{
+    display:flex;align-items:center;gap:32px;
+    padding:34px 8px;border-top:1px solid var(--hairline);
+    text-decoration:none;cursor:default;transition:padding 0.3s ease, background 0.3s ease;
+  }
+  .feature-rows .feature-row:last-child{border-bottom:1px solid var(--hairline);}
+  .feature-row .f-num{font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--gold);font-size:20px;min-width:48px;}
+  .feature-row .f-body{flex:1;}
+  .feature-row .f-body h3{font-size:22px;font-weight:500;color:var(--cream);font-style:normal;letter-spacing:0.01em;}
+  .feature-row .f-body p{
+    margin-top:0;max-height:0;opacity:0;overflow:hidden;font-size:14px;line-height:1.9;color:var(--muted);
+    transition:max-height 0.4s ease, opacity 0.3s ease, margin-top 0.3s ease;
+  }
+  .feature-row .f-arrow{color:var(--gold);font-size:20px;opacity:0;transform:translateX(8px);transition:opacity 0.3s ease, transform 0.3s ease;}
+  .feature-row:hover{padding-inline-start:20px;background:rgba(201,168,76,0.04);}
+  .feature-row:hover .f-body p{max-height:90px;opacity:1;margin-top:10px;}
+  .feature-row:hover .f-arrow{opacity:1;transform:translateX(0);}
+  @media(max-width:640px){
+    .feature-row{gap:18px;padding:26px 4px;}
+    .feature-row .f-arrow{display:none;}
+  }
+
+  /* ===== SHOWCASE GRID ===== */
+  .showcase-grid{max-width:1100px;margin:0 auto 64px;display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .showcase-card{position:relative;display:block;aspect-ratio:4/5;overflow:hidden;text-decoration:none;border:1px solid var(--hairline);}
+  .showcase-card img{width:100%;height:100%;object-fit:cover;transition:transform 0.6s ease;display:block;}
+  .showcase-card:hover img{transform:scale(1.06);}
+  .showcase-overlay{
+    position:absolute;left:0;right:0;bottom:0;padding:24px 22px;
+    background:linear-gradient(rgba(8,8,6,0),rgba(8,8,6,0.92) 70%);
+  }
+  .showcase-cat{font-size:10px;letter-spacing:0.04em;color:var(--gold);margin-bottom:8px;}
+  .showcase-overlay h3{font-size:22px;color:var(--cream);font-style:normal;}
+  .showcase-stat{margin-top:8px;font-size:11px;letter-spacing:0.03em;color:var(--muted);}
+  @media(max-width:768px){.showcase-grid{grid-template-columns:1fr;}}
+
+  /* ===== CTA BAND ===== */
+  .cta-band{
+    padding:100px 24px;background:#050403;border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline);
+    text-align:center;
+  }
+  .cta-band-inner{max-width:560px;margin:0 auto;}
+  .cta-band h2{font-size:clamp(28px,4vw,44px);color:var(--cream);margin-bottom:32px;}
 
   /* ===== PROJECTS ===== */
   .project-card{
@@ -201,17 +261,23 @@
   @media(max-width:768px){.project-card{grid-template-columns:1fr;} .project-info{padding:40px 32px;}}
 
   /* ===== FOOTER ===== */
-  footer{
-    border-top:1px solid var(--hairline);padding:64px 48px 40px;
-    display:flex;flex-direction:column;align-items:center;gap:28px;text-align:center;
-  }
-  .footer-mark{font-family:'Cormorant Garamond',serif;font-size:24px;color:var(--cream);}
+  footer{border-top:1px solid var(--hairline);padding:72px 48px 0;}
+  .footer-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;padding-bottom:56px;direction:ltr;text-align:left;}
+  .footer-col h4{font-size:11px;letter-spacing:0.04em;color:var(--gold);margin-bottom:20px;font-weight:600;}
+  .footer-mark{font-family:'Cormorant Garamond',serif;font-size:24px;color:var(--cream);margin-bottom:16px;}
   .footer-mark span{color:var(--gold);}
-  .footer-links{display:flex;gap:32px;flex-wrap:wrap;justify-content:center;}
-  .footer-links a{color:var(--muted);text-decoration:none;font-size:12px;letter-spacing:0.03em;text-transform:none;transition:color 0.2s;}
-  .footer-links a:hover{color:var(--gold);}
-  .footer-bottom{font-size:11px;color:var(--muted);letter-spacing:0.04em;}
-  .footer-bottom .tag{display:block;margin-top:6px;color:var(--gold);font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14px;}
+  .footer-col p{font-size:13px;line-height:1.9;color:var(--muted);}
+  .footer-col a{display:block;color:var(--muted);text-decoration:none;font-size:13px;line-height:2.4;transition:color 0.2s;}
+  .footer-col a:hover{color:var(--gold);}
+  .footer-bottom{
+    border-top:1px solid var(--hairline);padding:24px 0;
+    display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;
+    font-size:11px;color:var(--muted);letter-spacing:0.04em;max-width:1100px;margin:0 auto;
+    direction:ltr;
+  }
+  .footer-bottom .tag{color:var(--gold);font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14px;}
+  @media(max-width:900px){.footer-grid{grid-template-columns:1fr 1fr;}}
+  @media(max-width:560px){.footer-grid{grid-template-columns:1fr;} .footer-bottom{flex-direction:column;text-align:center;}}
 
   /* WHATSAPP NUMBER — RESOLVED: brochure number +2 011 0000 39 39 (wa.me/201100003939)
      confirmed correct and used in all buttons site-wide. Old +20 10 3386 0007 retired. */
@@ -223,14 +289,18 @@
 
 <nav>
   <a href="ar.html"><img src="images/logo.svg" alt="Core Edge Developments" style="height:64px;width:auto;display:block"></a>
-  <div class="nav-links" id="navLinks">
-    <a href="ar.html">الرئيسية</a>
-    <a href="ar.html#about">عن Core Edge</a>
-    <a href="ar-portfolio.html">المطور</a>
-    <a href="ar-aura.html">المشروع</a>
-    <a href="ar-green-belt.html">لماذا الحزام الأخضر</a>
-    <div class="lang-switch" aria-label="Language switch"><a href="index.html" lang="en" dir="ltr">EN</a><span class="divider">|</span><a href="ar.html" class="active" lang="ar" aria-current="page">عربي</a></div>
-    <a href="https://wa.me/201100003939" class="btn-contact">تواصل معنا</a>
+  <div class="nav-menu" id="navLinks">
+    <div class="nav-links">
+      <a href="ar.html">الرئيسية</a>
+      <a href="ar.html#about">عن Core Edge</a>
+      <a href="ar-portfolio.html">المطور</a>
+      <a href="ar-aura.html">AURA</a>
+      <a href="ar-green-belt.html">لماذا الحزام الأخضر</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-switch" aria-label="Language switch"><a href="index.html" lang="en" dir="ltr">EN</a><span class="divider">|</span><a href="ar.html" class="active" lang="ar" aria-current="page">عربي</a></div>
+      <a href="https://wa.me/201100003939" class="btn-contact">تواصل معنا</a>
+    </div>
   </div>
   <button class="hamburger" id="hamburgerBtn" aria-label="القائمة"><span></span><span></span><span></span></button>
 </nav>
@@ -252,20 +322,20 @@
 
 <div class="stats">
   <div class="reveal">
-    <div class="stat-num">10+</div>
-    <div class="stat-label">سنوات من التميّز في التنفيذ</div>
-  </div>
-  <div class="reveal">
-    <div class="stat-num">1</div>
-    <div class="stat-label">مشروع رئيسي مميز</div>
-  </div>
-  <div class="reveal">
     <div class="stat-num">20</div>
     <div class="stat-label">فيلا مستقلة بتوقيع خاص</div>
   </div>
   <div class="reveal">
     <div class="stat-num">279</div>
-    <div class="stat-label">م² لكل فيلا</div>
+    <div class="stat-label">م² مساحة بناء</div>
+  </div>
+  <div class="reveal">
+    <div class="stat-num">10,500</div>
+    <div class="stat-label">م² مساحة الكمبوند</div>
+  </div>
+  <div class="reveal">
+    <div class="stat-num">2026</div>
+    <div class="stat-label">بداية التسليم</div>
   </div>
 </div>
 
@@ -274,29 +344,65 @@
     <div class="label">فلسفة Core Edge</div>
     <h2>رؤية راقية، <em>وتنفيذ يليق بها.</em></h2>
   </div>
-  <div class="pillars">
-    <div class="pillar reveal">
-      <div class="pillar-num">01</div>
-      <h3>تطوير تقوده الرؤية</h3>
-      <p>كل مشروع من Core Edge يبدأ برؤية واضحة: مساحات ترتقي بأسلوب الحياة، وتمنح الاستثمار قيمة مستدامة.</p>
+  <div class="feature-rows">
+    <div class="feature-row reveal">
+      <div class="f-num">01</div>
+      <div class="f-body"><h3>مسبح خاص لكل فيلا</h3><p>كل فيلا من العشرين تأتي بمسبح خاص بها — بلا مشاركة، وبلا حجز مسبق، وبلا تنازل عن الخصوصية.</p></div>
+      <div class="f-arrow">←</div>
     </div>
-    <div class="pillar reveal">
-      <div class="pillar-num">02</div>
-      <h3>جودة تليق بالعلامات الفارقة</h3>
-      <p>من الأساسات حتى أدق التشطيبات، تحكم كل تفصيلة معايير صارمة في المواد، والعمارة، وتنسيق المساحات الخارجية.</p>
+    <div class="feature-row reveal">
+      <div class="f-num">02</div>
+      <div class="f-body"><h3>أربعة مستويات معمارية</h3><p>بدروم، أرضي، أول، وروف — كل مستوى مدروس بعناية، من الاستقبال إلى الخصوصية الكاملة وحتى تراس التتويج.</p></div>
+      <div class="f-arrow">←</div>
     </div>
-    <div class="pillar reveal">
-      <div class="pillar-num">03</div>
-      <h3>منظور استثماري أولًا</h3>
-      <p>مواقع استراتيجية، فرص واعدة لنمو القيمة، وخطط سداد مرنة مصممة لتعزيز العائد على الاستثمار.</p>
+    <div class="feature-row reveal">
+      <div class="f-num">03</div>
+      <div class="f-body"><h3>الحزام الأخضر بالشيخ زايد</h3><p>موقع نادر على أرض خضراء محمية — كثافة منخفضة، وقرب دقائق من قلب غرب القاهرة.</p></div>
+      <div class="f-arrow">←</div>
+    </div>
+    <div class="feature-row reveal">
+      <div class="f-num">04</div>
+      <div class="f-body"><h3>كمبوند مغلق من عشرين فيلا فقط</h3><p>10,500 م² بمعيار واحد موحّد — ليس تطويرًا واسعًا، بل مجمّع منتقى بمدخل واحد وهوية واحدة.</p></div>
+      <div class="f-arrow">←</div>
+    </div>
+    <div class="feature-row reveal">
+      <div class="f-num">05</div>
+      <div class="f-body"><h3>تنفيذ متكامل رأسيًا</h3><p>Core Edge تدير إنتاج الخرسانة والحديد ومواد البناء بنفسها — جودة أعلى وضبط أدق، من الأساس حتى التشطيب.</p></div>
+      <div class="f-arrow">←</div>
     </div>
   </div>
 </section>
 
 <section id="projects">
   <div class="section-head reveal">
-    <div class="label">مشروعاتنا</div>
-    <h2>قيد التطوير حاليًا</h2>
+    <div class="label">داخل AURA</div>
+    <h2>مصممة لأسلوب حياتك الفعلي</h2>
+  </div>
+  <div class="showcase-grid">
+    <a href="ar-aura.html" class="showcase-card reveal">
+      <img src="images/g-pool.jpg" alt="مسبح AURA الخاص">
+      <div class="showcase-overlay">
+        <div class="showcase-cat">خارجي</div>
+        <h3>مسبح خاص</h3>
+        <div class="showcase-stat">في كل فيلا</div>
+      </div>
+    </a>
+    <a href="ar-aura.html" class="showcase-card reveal">
+      <img src="images/g-master.jpg" alt="غرفة النوم الرئيسية AURA">
+      <div class="showcase-overlay">
+        <div class="showcase-cat">داخلي</div>
+        <h3>الجناح الرئيسي</h3>
+        <div class="showcase-stat">المستوى الأول</div>
+      </div>
+    </a>
+    <a href="ar-aura.html" class="showcase-card reveal">
+      <img src="images/aerial-1.jpg" alt="موقع AURA بالحزام الأخضر">
+      <div class="showcase-overlay">
+        <div class="showcase-cat">الموقع</div>
+        <h3>كمبوند الحزام الأخضر</h3>
+        <div class="showcase-stat">10,500 م²</div>
+      </div>
+    </a>
   </div>
   <div class="project-card reveal">
     <div class="project-visual" style="background:linear-gradient(rgba(8,8,6,0.5),rgba(8,8,6,0.6)),url('images/aerial.jpg') center/cover no-repeat;">
@@ -312,17 +418,45 @@
   </div>
 </section>
 
+<section class="cta-band">
+  <div class="cta-band-inner reveal">
+    <h2>عشرون فيلا. <em>رؤية واحدة.</em></h2>
+    <a href="https://wa.me/201100003939" class="btn-secondary">تواصل معنا</a>
+  </div>
+</section>
+
 <footer>
-  <div class="footer-mark">CORE <span>EDGE</span></div>
-  <div class="footer-links">
-    <a href="https://wa.me/201100003939" target="_blank" rel="noopener">WHATSAPP</a>
-    <a href="https://www.instagram.com/coreedgedev" target="_blank" rel="noopener">INSTAGRAM</a>
-    <a href="https://www.facebook.com/coreedgedev" target="_blank" rel="noopener">FACEBOOK</a>
-    <a href="mailto:sales@coreedgedev.com">SALES@COREEDGEDEV.COM</a>
+  <div class="footer-grid">
+    <div class="footer-col">
+      <div class="footer-mark">CORE <span>EDGE</span></div>
+      <p>Boutique real estate development on Sheikh Zayed's Green Belt. Landmark-quality villas, investor-first thinking.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navigation</h4>
+      <a href="index.html">Home</a>
+      <a href="index.html#about">About Us</a>
+      <a href="portfolio.html">Developer</a>
+      <a href="aura.html">Aura</a>
+      <a href="green-belt.html">Why Green Belt</a>
+    </div>
+    <div class="footer-col">
+      <h4>AURA</h4>
+      <a href="aura.html">20 Signature Villas</a>
+      <a href="aura.html#floor-plans">Floor Plans</a>
+      <a href="green-belt.html">Sheikh Zayed Green Belt</a>
+      <a href="aura.html#location">Location</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <a href="https://wa.me/201100003939" target="_blank" rel="noopener">+20 11 0000 3939</a>
+      <a href="mailto:sales@coreedgedev.com">sales@coreedgedev.com</a>
+      <a href="https://www.instagram.com/coreedgedev" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/coreedgedev" target="_blank" rel="noopener">Facebook</a>
+    </div>
   </div>
   <div class="footer-bottom">
-    Core Edge Development & real Estate 2026 ©
-    
+    <span>© 2026 Core Edge Development &amp; Real Estate</span>
+    <span class="tag">Beyond Buildings. Beyond Expectations.</span>
   </div>
 </footer>
 
@@ -356,7 +490,10 @@
 
   /* nav solidifies on scroll */
   const navEl=document.querySelector('nav');
-  addEventListener('scroll',()=>navEl.classList.toggle('scrolled', window.scrollY>40), {passive:true});
+  addEventListener('scroll',()=>{
+    navEl.classList.toggle('visible', window.scrollY>0);
+    navEl.classList.toggle('scrolled', window.scrollY>40);
+  }, {passive:true});
 
   /* mobile menu */
   const hamburger=document.getElementById('hamburgerBtn');

@@ -24,18 +24,20 @@
   nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:20px 48px;background:rgba(8,8,6,0.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--hairline);}
   .nav-mark{font-family:'Cormorant Garamond',serif;font-size:20px;letter-spacing:0.08em;color:var(--cream);}
   .nav-mark span{color:var(--gold);}
-  .nav-links{display:flex;gap:28px;align-items:center;}
+  .nav-menu{display:flex;align-items:center;flex:1;justify-content:space-between;margin-left:40px;}
+  .nav-links{display:flex;gap:28px;align-items:center;flex:1;justify-content:center;}
   .nav-links a{color:var(--cream);text-decoration:none;font-size:11.5px;letter-spacing:0.04em;text-transform:none;font-weight:500;opacity:0.78;}
-  
+  .nav-right{display:flex;align-items:center;gap:16px;}
   .lang-switch{display:flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid var(--hairline);border-radius:999px;background:rgba(201,168,76,0.08);color:var(--muted);font-size:11.5px;letter-spacing:0.04em;text-transform:none;}
-  .lang-switch a{opacity:0.78;}
+  .lang-switch a{opacity:0.78;text-decoration:none;}
   .lang-switch a.active{color:var(--gold);opacity:1;}
   .lang-switch .divider{color:rgba(245,242,236,0.28);}
   .nav-links a:hover{opacity:1;color:var(--gold);}
-  .btn-contact{background:var(--gold);color:var(--ink)!important;opacity:1!important;padding:10px 22px;font-weight:700;letter-spacing:0.12em;}
+  .btn-contact{background:transparent;border:1px solid var(--gold);color:var(--gold)!important;opacity:1!important;padding:10px 22px;font-weight:600;letter-spacing:0.12em;text-decoration:none;transition:transform 0.2s, background 0.2s, color 0.2s;}
+  .btn-contact:hover{transform:translateY(-2px);background:var(--gold);color:var(--ink)!important;}
   .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:6px;}
   .hamburger span{width:22px;height:2px;background:var(--cream);}
-  @media(max-width:900px){nav{padding:18px 22px;}.nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:rgba(8,8,6,0.98);flex-direction:column;align-items:flex-start;padding:22px 26px 28px;gap:18px;border-bottom:1px solid var(--hairline);}.nav-links.open{display:flex;}.btn-contact{margin-top:6px;}.hamburger{display:flex;}}
+  @media(max-width:900px){nav{padding:18px 22px;}.nav-menu{display:none;position:absolute;top:100%;left:0;right:0;margin-left:0;background:rgba(8,8,6,0.98);flex-direction:column;align-items:flex-start;padding:22px 26px 28px;gap:18px;border-bottom:1px solid var(--hairline);}.nav-menu.open{display:flex;}.nav-links{flex-direction:column;align-items:flex-start;gap:18px;}.nav-right{flex-direction:column;align-items:flex-start;gap:14px;}.btn-contact{margin-top:6px;}.hamburger{display:flex;}}
 
   .article{max-width:720px;margin:0 auto;padding:150px 24px 40px;}
   .article .back{display:inline-block;margin-bottom:30px;color:var(--muted);text-decoration:none;font-size:11px;letter-spacing:0.04em;text-transform:none;}
@@ -63,14 +65,18 @@
 
 <nav>
   <a href="ar.html"><img src="images/logo.svg" alt="Core Edge Developments" style="height:64px;width:auto;display:block"></a>
-  <div class="nav-links" id="navLinks">
-    <a href="ar.html">الرئيسية</a>
-    <a href="ar.html#about">عن Core Edge</a>
-    <a href="ar-portfolio.html">المطور</a>
-    <a href="ar-aura.html">المشروع</a>
-    <a href="ar-green-belt.html">لماذا الحزام الأخضر</a>
-<div class="lang-switch" aria-label="Language switch"><a href="blog-investor-first.html" lang="en" dir="ltr">EN</a><span class="divider">|</span><a href="ar-blog-investor-first.html" class="active" lang="ar" aria-current="page">عربي</a></div>
-<a href="https://wa.me/201100003939" class="btn-contact">تواصل معنا</a>
+  <div class="nav-menu" id="navLinks">
+    <div class="nav-links">
+  <a href="ar.html">الرئيسية</a>
+  <a href="ar.html#about">عن Core Edge</a>
+  <a href="ar-portfolio.html">المطور</a>
+  <a href="ar-aura.html">AURA</a>
+  <a href="ar-green-belt.html">لماذا الحزام الأخضر</a>
+    </div>
+    <div class="nav-right">
+  <div class="lang-switch" aria-label="Language switch"><a href="blog-investor-first.html" lang="en" dir="ltr">EN</a><span class="divider">|</span><a href="ar-blog-investor-first.html" class="active" lang="ar" aria-current="page">عربي</a></div>
+  <a href="https://wa.me/201100003939" class="btn-contact">تواصل معنا</a>
+    </div>
   </div>
   <button class="hamburger" id="hamburgerBtn" aria-label="القائمة"><span></span><span></span><span></span></button>
 </nav>

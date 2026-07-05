@@ -38,29 +38,33 @@
     border-bottom:1px solid var(--hairline);
   }
   .nav-mark{font-family:'Cormorant Garamond',serif;font-size:20px;letter-spacing:0.08em;color:var(--ink);}
-  .nav-links{display:flex;gap:28px;align-items:center;}
+  .nav-menu{display:flex;align-items:center;flex:1;justify-content:space-between;margin-left:40px;}
+  .nav-links{display:flex;gap:28px;align-items:center;flex:1;justify-content:center;}
   .nav-links a{color:var(--ink);text-decoration:none;font-size:11.5px;letter-spacing:0.04em;text-transform:none;font-weight:500;opacity:0.78;}
-  
+  .nav-right{display:flex;align-items:center;gap:16px;}
   .lang-switch{display:flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid var(--hairline);border-radius:999px;background:rgba(201,168,76,0.08);color:var(--muted);font-size:11.5px;letter-spacing:0.04em;text-transform:none;}
-  .lang-switch a{opacity:0.78;}
+  .lang-switch a{opacity:0.78;text-decoration:none;}
   .lang-switch a.active{color:var(--gold-deep);opacity:1;}
   .lang-switch .divider{color:rgba(245,242,236,0.28);}
   .nav-links a:hover{opacity:1;color:var(--gold-deep);}
   .btn-contact{
-    background:var(--gold-deep);color:var(--cream)!important;opacity:1!important;
-    padding:10px 22px;font-weight:700;letter-spacing:0.12em;transition:transform 0.2s;
+    background:transparent;border:1px solid var(--gold-deep);color:var(--gold-deep)!important;opacity:1!important;
+    padding:10px 22px;font-weight:600;letter-spacing:0.04em;text-decoration:none;
+    transition:transform 0.2s, background 0.2s, color 0.2s;
   }
-  .btn-contact:hover{transform:translateY(-2px);color:var(--cream)!important;}
+  .btn-contact:hover{transform:translateY(-2px);background:var(--gold-deep);color:var(--cream)!important;}
   .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:6px;}
   .hamburger span{width:22px;height:2px;background:var(--ink);}
   @media(max-width:900px){
     nav{padding:18px 22px;}
-    .nav-links{
-      display:none;position:absolute;top:100%;left:0;right:0;
+    .nav-menu{
+      display:none;position:absolute;top:100%;left:0;right:0;margin-left:0;
       background:rgba(240,233,220,0.99);flex-direction:column;align-items:flex-start;
       padding:22px 26px 28px;gap:18px;border-bottom:1px solid var(--hairline);
     }
-    .nav-links.open{display:flex;}
+    .nav-menu.open{display:flex;}
+    .nav-links{flex-direction:column;align-items:flex-start;gap:18px;}
+    .nav-right{flex-direction:column;align-items:flex-start;gap:14px;}
     .btn-contact{margin-top:6px;}
     .hamburger{display:flex;}
   }
@@ -86,7 +90,8 @@
   .reveal.in{opacity:1;transform:translateY(0);}
   @keyframes floaty{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
   .hero img.logo{animation:floaty 5.5s ease-in-out infinite;}
-  nav{transition:padding .3s ease, box-shadow .3s ease;}
+  nav{opacity:0;pointer-events:none;transition:opacity .5s ease, padding .3s ease, box-shadow .3s ease;}
+  nav.visible{opacity:1;pointer-events:auto;}
   nav.scrolled{padding-top:13px;padding-bottom:13px;box-shadow:0 12px 30px rgba(30,26,21,0.16);}
   .stat-num{font-variant-numeric:tabular-nums;}
 
@@ -125,24 +130,16 @@
   .level-tag{font-size:11px;letter-spacing:0.04em;text-transform:none;color:var(--gold);width:160px;flex-shrink:0;}
   .level-name{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;color:var(--cream);}
   .floor-grid{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
-  .floor{border:1px solid var(--hairline);background:#fff;padding:12px;text-decoration:none;display:block;transition:transform .3s, box-shadow .3s;}
-  .floor:hover{transform:translateY(-5px);box-shadow:0 18px 44px rgba(30,26,21,0.14);}
+  .floor{border:1px solid var(--hairline);background:#080806;padding:12px;text-decoration:none;display:block;transition:transform .3s, box-shadow .3s;}
+  .floor:hover{transform:translateY(-5px);box-shadow:0 18px 44px rgba(201,168,76,0.14);}
   .floor img{width:100%;height:auto;display:block;}
   .floor .fcap{display:block;text-align:center;padding:14px 4px 4px;}
   .floor .ft{display:block;font-size:10px;letter-spacing:0.04em;text-transform:none;color:var(--gold-deep);}
-  .floor .fn{display:block;margin-top:5px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;color:var(--ink);}
+  .floor .fn{display:block;margin-top:5px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;color:#F5F2EC;}
   @media(max-width:900px){.floor-grid{grid-template-columns:1fr 1fr;}}
   @media(max-width:560px){.floor-grid{grid-template-columns:1fr;}}
   .masterplan{background:var(--cream-deep);}
-  .mp-frame{display:block;max-width:920px;margin:0 auto;border:1px solid var(--hairline);background:#fff;padding:14px;transition:transform .3s,box-shadow .3s;}
-  .mp-frame:hover{transform:translateY(-4px);box-shadow:0 18px 44px rgba(30,26,21,0.14);}
-  .mp-frame img{width:100%;height:auto;display:block;}
   .mp-note{max-width:640px;margin:24px auto 0;text-align:center;font-size:13px;color:var(--muted);font-style:italic;}
-  .aerials{max-width:1100px;margin:44px auto 0;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
-  .aerials a{display:block;overflow:hidden;border:1px solid rgba(201,168,76,0.25);}
-  .aerials img{width:100%;height:280px;object-fit:cover;display:block;transition:transform .6s ease;}
-  .aerials a:hover img{transform:scale(1.06);}
-  @media(max-width:768px){.aerials{grid-template-columns:1fr;}.aerials img{height:300px;}}
   .mp-split{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1.05fr;gap:56px;align-items:center;}
   .mp-text .label{margin-bottom:14px;}
   .mp-text h2{font-size:clamp(28px,3.2vw,42px);margin-bottom:20px;}
@@ -150,9 +147,8 @@
   .mp-stats{display:grid;grid-template-columns:1fr 1fr;gap:30px 22px;}
   .mp-n{font-family:'Cormorant Garamond',serif;font-size:42px;color:var(--gold);line-height:1;}
   .mp-l{margin-top:6px;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);}
-  .mp-split .mp-frame{max-width:100%;display:flex;justify-content:center;margin:0;}
-  .mp-split .mp-frame img{max-height:82vh;width:auto;max-width:100%;}
-  @media(max-width:860px){.mp-split{grid-template-columns:1fr;gap:34px;}.mp-split .mp-frame img{max-height:none;}}
+  @media(max-width:860px){.mp-split{grid-template-columns:1fr;gap:34px;}}
+  .mp-plain{width:100%;height:auto;display:block;cursor:pointer;}
 
   /* lifestyle gallery */
   .gallery{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--hairline);}
@@ -173,11 +169,13 @@
 
   /* location */
   .loc-tags{max-width:900px;margin:0 auto 56px;display:flex;justify-content:center;gap:48px;flex-wrap:wrap;}
-  .loc-tag{text-align:center;}
+  .loc-tag{text-align:center;transition:transform .3s ease;}
+  .loc-tag:hover{transform:scale(1.08);}
   .loc-tag .lt-label{font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold-deep);}
   .loc-tag .lt-sub{margin-top:4px;font-size:12px;color:var(--muted);}
   .distances{max-width:740px;margin:0 auto;}
-  .dist-row{display:flex;align-items:baseline;gap:20px;padding:18px 0;border-bottom:1px solid var(--hairline);}
+  .dist-row{display:flex;align-items:baseline;gap:20px;padding:18px 0;border-bottom:1px solid var(--hairline);transition:transform .3s ease;}
+  .dist-row:hover{transform:scale(1.03);}
   .dist-row:first-child{border-top:1px solid var(--hairline);}
   .dist-time{font-family:'Cormorant Garamond',serif;font-size:26px;color:var(--gold-deep);width:90px;flex-shrink:0;}
   .dist-place{font-size:14px;letter-spacing:0.02em;}
@@ -208,14 +206,24 @@
   .pay-tag{border:1px solid var(--hairline-gold);padding:8px 18px;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold-deep);}
   .payment p.body{max-width:560px;margin:0 auto;font-size:15px;line-height:1.8;color:var(--muted);}
 
-  footer{background:var(--ink);color:var(--cream);padding:64px 48px 40px;text-align:center;}
-  .footer-mark{font-family:'Cormorant Garamond',serif;font-size:26px;}
-  .footer-tag{margin-top:6px;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);}
-  .footer-links{margin-top:28px;display:flex;gap:30px;justify-content:center;flex-wrap:wrap;}
-  .footer-links a{color:rgba(240,233,220,0.7);text-decoration:none;font-size:12px;letter-spacing:0.06em;text-transform:uppercase;}
-  .footer-links a:hover{color:var(--gold);}
-  .footer-addr{margin-top:26px;font-size:12px;color:rgba(240,233,220,0.5);line-height:1.7;}
-  .footer-bottom{margin-top:30px;font-size:11px;color:rgba(240,233,220,0.4);}
+  /* ===== FOOTER ===== */
+  footer{border-top:1px solid rgba(201,168,76,0.28);padding:72px 48px 0;background:#080806;}
+  .footer-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;padding-bottom:56px;direction:ltr;text-align:left;}
+  .footer-col h4{font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#C9A84C;margin-bottom:20px;font-weight:600;}
+  .footer-mark{font-family:'Cormorant Garamond',serif;font-size:24px;color:#F5F2EC;margin-bottom:16px;}
+  .footer-mark span{color:#C9A84C;}
+  .footer-col p{font-size:13px;line-height:1.75;color:#8A8578;}
+  .footer-col a{display:block;color:#8A8578;text-decoration:none;font-size:13px;line-height:2.2;transition:color 0.2s;}
+  .footer-col a:hover{color:#C9A84C;}
+  .footer-bottom{
+    border-top:1px solid rgba(201,168,76,0.28);padding:24px 0;
+    display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;
+    font-size:11px;color:#8A8578;letter-spacing:0.04em;max-width:1100px;margin:0 auto;
+    direction:ltr;
+  }
+  .footer-bottom .tag{color:#C9A84C;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14px;}
+  @media(max-width:900px){.footer-grid{grid-template-columns:1fr 1fr;}}
+  @media(max-width:560px){.footer-grid{grid-template-columns:1fr;} .footer-bottom{flex-direction:column;text-align:center;}}
 
   /* WHATSAPP NUMBER — RESOLVED: brochure number +2 011 0000 39 39 (wa.me/201100003939)
      confirmed correct and used in all buttons site-wide. Old +20 10 3386 0007 retired. */
@@ -228,10 +236,10 @@
   nav{background:rgba(8,8,6,0.94);border-bottom:1px solid rgba(201,168,76,0.28);}
   .nav-links a{color:#F5F2EC;}
   .nav-links a:hover{color:#C9A84C;}
-  .btn-contact{background:#C9A84C;color:#080806!important;}
-  .btn-contact:hover{color:#080806!important;}
+  .btn-contact{background:transparent;border-color:#C9A84C;color:#C9A84C!important;}
+  .btn-contact:hover{background:#C9A84C;color:#080806!important;}
   .hamburger span{background:#F5F2EC;}
-  @media(max-width:900px){.nav-links{background:rgba(8,8,6,0.98);}}
+  @media(max-width:900px){.nav-menu{background:rgba(8,8,6,0.98);}}
   .hero{
     background-image:
       linear-gradient(180deg, rgba(8,8,6,0.55) 0%, rgba(8,8,6,0.72) 55%, rgba(8,8,6,0.94) 100%),
@@ -258,7 +266,6 @@
   .gal-tag{color:#C9A84C;}
   .gal-card .gsub{color:#E3C77E;}
   .masterplan{background:#0d0c09;}
-  .mp-frame{background:#0f0e0b;border-color:rgba(201,168,76,0.3);}
   .mp-note{color:#8A8578;}
   .loc-tag .lt-label{color:#C9A84C;}
   .loc-tag .lt-sub{color:#8A8578;}
@@ -314,14 +321,18 @@
 
 <nav>
   <a href="ar.html"><img src="images/logo.svg" alt="Core Edge Developments" style="height:64px;width:auto;display:block"></a>
-  <div class="nav-links" id="navLinks">
-    <a href="ar.html">الرئيسية</a>
-    <a href="ar.html#about">عن Core Edge</a>
-    <a href="ar-portfolio.html">المطور</a>
-    <a href="ar-aura.html">المشروع</a>
-    <a href="ar-green-belt.html">لماذا الحزام الأخضر</a>
-<div class="lang-switch" aria-label="Language switch"><a href="aura.html" lang="en" dir="ltr">EN</a><span class="divider">|</span><a href="ar-aura.html" class="active" lang="ar" aria-current="page">عربي</a></div>
-<a href="https://wa.me/201100003939" class="btn-contact">تواصل معنا</a>
+  <div class="nav-menu" id="navLinks">
+    <div class="nav-links">
+      <a href="ar.html">الرئيسية</a>
+      <a href="ar.html#about">عن Core Edge</a>
+      <a href="ar-portfolio.html">المطور</a>
+      <a href="ar-aura.html">AURA</a>
+      <a href="ar-green-belt.html">لماذا الحزام الأخضر</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-switch" aria-label="Language switch"><a href="aura.html" lang="en" dir="ltr">EN</a><span class="divider">|</span><a href="ar-aura.html" class="active" lang="ar" aria-current="page">عربي</a></div>
+      <a href="https://wa.me/201100003939" class="btn-contact">تواصل معنا</a>
+    </div>
   </div>
   <button class="hamburger" id="hamburgerBtn" aria-label="القائمة"><span></span><span></span><span></span></button>
 </nav>
@@ -399,14 +410,7 @@
         <div><div class="mp-n">279</div><div class="mp-l">BUA m² / Villa</div></div>
       </div>
     </div>
-    <a class="mp-frame reveal" href="images/master-plan.jpg" target="_blank" rel="noopener">
-      <img src="images/master-plan.jpg" alt="AURA compound master plan — 20 villas, boulevard, gated entry">
-    </a>
-  </div>
-  <div class="aerials reveal">
-    <a href="images/aerial-1.jpg" target="_blank" rel="noopener"><img src="images/aerial-1.jpg" alt="AURA boulevard at golden hour"></a>
-    <a href="images/aerial-2.jpg" target="_blank" rel="noopener"><img src="images/aerial-2.jpg" alt="AURA compound at night"></a>
-    <a href="images/aerial-3.jpg" target="_blank" rel="noopener"><img src="images/aerial-3.jpg" alt="AURA aerial at dusk"></a>
+    <img class="mp-plain reveal" src="images/master-plan.jpg" alt="AURA compound master plan — 20 villas, boulevard, gated entry" onclick="openLightbox(9)">
   </div>
 </section>
 
@@ -416,10 +420,10 @@
     <h2>أربعة مستويات <em>بتفاصيل مدروسة</em></h2>
   </div>
   <div class="floor-grid reveal">
-    <a class="floor" href="images/floor-ground.jpg" target="_blank" rel="noopener"><img src="images/floor-ground.jpg" alt="AURA Basement floor plan"><span class="fcap"><span class="ft">Level B · Basement</span><span class="fn">الأساس</span></span></a>
-    <a class="floor" href="images/floor-first.jpg" target="_blank" rel="noopener"><img src="images/floor-first.jpg" alt="AURA Ground floor plan"><span class="fcap"><span class="ft">Level G · Ground</span><span class="fn">الملاذ الخاص</span></span></a>
-    <a class="floor" href="images/floor-second.jpg" target="_blank" rel="noopener"><img src="images/floor-second.jpg" alt="AURA First floor plan"><span class="fcap"><span class="ft">Level 1 · First</span><span class="fn">الوصول</span></span></a>
-    <a class="floor" href="images/floor-roof.jpg" target="_blank" rel="noopener"><img src="images/floor-roof.jpg" alt="AURA Roof floor plan"><span class="fcap"><span class="ft">Level R · Roof</span><span class="fn">التاج</span></span></a>
+    <a class="floor" href="images/floor-ground.jpg" target="_blank" rel="noopener"><img src="images/floor-ground.jpg" alt="AURA Basement floor plan"><span class="fcap"><span class="ft">Level B · Basement Floor</span><span class="fn">الأساس</span></span></a>
+    <a class="floor" href="images/floor-first.jpg" target="_blank" rel="noopener"><img src="images/floor-first.jpg" alt="AURA Ground floor plan"><span class="fcap"><span class="ft">Level G · Ground Floor</span><span class="fn">الملاذ الخاص</span></span></a>
+    <a class="floor" href="images/floor-second.jpg" target="_blank" rel="noopener"><img src="images/floor-second.jpg" alt="AURA First floor plan"><span class="fcap"><span class="ft">Level 1 · First Floor</span><span class="fn">الوصول</span></span></a>
+    <a class="floor" href="images/floor-roof.jpg" target="_blank" rel="noopener"><img src="images/floor-roof.jpg" alt="AURA Roof floor plan"><span class="fcap"><span class="ft">Level R · Roof Floor</span><span class="fn">التاج</span></span></a>
   </div>
   <p style="text-align:center;margin-top:24px;font-size:12px;color:var(--muted);font-style:italic;">اضغط على أي مخطط لعرضه بالحجم الكامل.</p>
 </section>
@@ -523,16 +527,38 @@
 </section>
 
 <footer>
-  <div class="footer-mark">AURA</div>
-  <div class="footer-tag">من Core Edge</div>
-  <div class="footer-links">
-    <a href="https://wa.me/201100003939" target="_blank" rel="noopener">WHATSAPP</a>
-    <a href="https://www.instagram.com/coreedgedev" target="_blank" rel="noopener">INSTAGRAM</a>
-    <a href="https://www.facebook.com/coreedgedev" target="_blank" rel="noopener">FACEBOOK</a>
-    <a href="mailto:sales@coreedgedev.com">SALES@COREEDGEDEV.COM</a>
+  <div class="footer-grid">
+    <div class="footer-col">
+      <div class="footer-mark">CORE <span>EDGE</span></div>
+      <p>Boutique real estate development on Sheikh Zayed's Green Belt. Landmark-quality villas, investor-first thinking.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navigation</h4>
+      <a href="index.html">Home</a>
+      <a href="index.html#about">About Us</a>
+      <a href="portfolio.html">Developer</a>
+      <a href="aura.html">Aura</a>
+      <a href="green-belt.html">Why Green Belt</a>
+    </div>
+    <div class="footer-col">
+      <h4>AURA</h4>
+      <a href="aura.html">20 Signature Villas</a>
+      <a href="aura.html#floor-plans">Floor Plans</a>
+      <a href="green-belt.html">Sheikh Zayed Green Belt</a>
+      <a href="aura.html#location">Location</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <a href="https://wa.me/201100003939" target="_blank" rel="noopener">+20 11 0000 3939</a>
+      <a href="mailto:sales@coreedgedev.com">sales@coreedgedev.com</a>
+      <a href="https://www.instagram.com/coreedgedev" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/coreedgedev" target="_blank" rel="noopener">Facebook</a>
+    </div>
   </div>
-  <div class="footer-addr">West Square Mall - 2nd Floor • S31<br>SODIC West Beverly Hills • Giza • Egypt</div>
-  <div class="footer-bottom">Core Edge Development & real Estate 2026 ©</div>
+  <div class="footer-bottom">
+    <span>© 2026 Core Edge Development &amp; Real Estate</span>
+    <span class="tag">Beyond Buildings. Beyond Expectations.</span>
+  </div>
 </footer>
 
 <script>
@@ -565,7 +591,10 @@
 
   /* nav solidifies on scroll */
   const navEl=document.querySelector('nav');
-  addEventListener('scroll',()=>navEl.classList.toggle('scrolled', window.scrollY>40), {passive:true});
+  addEventListener('scroll',()=>{
+    navEl.classList.toggle('visible', window.scrollY>0);
+    navEl.classList.toggle('scrolled', window.scrollY>40);
+  }, {passive:true});
 
   /* mobile menu */
   const hamburger=document.getElementById('hamburgerBtn');
@@ -582,7 +611,8 @@
     {img:'images/g-kids.jpg', tag:'Kids Area', title:'Where Little Ones Belong', sub:'Theirs to Explore'},
     {img:'images/g-gym.jpg', tag:'Outdoor Gym', title:'Open Air. Open Potential.', sub:'Stronger, Every Morning'},
     {img:'images/g-gate.jpg', tag:'Gated Entry', title:'The Same Gate, Every Day You Come Home', sub:''},
-    {img:'images/g-back.jpg', tag:'The Backyard', title:'Where the Day Unwinds', sub:'Pool · Garden · Privacy'}
+    {img:'images/g-back.jpg', tag:'The Backyard', title:'Where the Day Unwinds', sub:'Pool · Garden · Privacy'},
+    {img:'images/master-plan.jpg', tag:'Master Plan', title:'The Compound, at a Glance', sub:'20 Villas · Boulevard · Gated Entry'}
   ];
   let lbIndex=0;
   const lbEl=document.getElementById('lightbox');
