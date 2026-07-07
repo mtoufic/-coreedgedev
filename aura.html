@@ -412,7 +412,7 @@
   </div>
 </section>
 
-<section class="floors">
+<section class="floors" id="floor-plans">
   <div class="section-head reveal">
     <div class="label">Floor Plans</div>
     <h2>Four Levels, <em>In Detail</em></h2>
@@ -488,7 +488,7 @@
   </div>
   <div class="map-btns reveal">
     <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=29.996889,30.885319" target="_blank" rel="noopener">Open in Google Maps →</a>
-    <a class="map-btn alt" href="https://earth.google.com/earth/d/1tmWRv5VLVflXLmmcGYCSzFz6mFzKVIM0?usp=sharing" target="_blank" rel="noopener">Explore in 3D · Google Earth →</a>
+    
   </div>
 </section>
 
@@ -651,5 +651,5 @@
 
 <div id="sp" style="position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,#C9A84C,#E3C77E);z-index:10000;transition:width .12s ease;"></div>
 <script>addEventListener('scroll',function(){var h=document.documentElement,m=h.scrollHeight-h.clientHeight;document.getElementById('sp').style.width=(m>0?(h.scrollTop/m*100):0)+'%';},{passive:true});</script>
-</body>
+<script>window.addEventListener('load',function(){if(location.hash){var t=document.querySelector(location.hash);if(t){setTimeout(function(){var y=t.getBoundingClientRect().top+window.pageYOffset-90;window.scrollTo({top:y,behavior:'smooth'});},400);}}});</script></body>
 </html>
