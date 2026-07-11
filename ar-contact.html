@@ -243,7 +243,7 @@
   #loader img{height:96px;width:auto;animation:loaderPulse 1.4s ease-in-out infinite;}
   @keyframes loaderPulse{0%,100%{opacity:.4;transform:scale(.97);}50%{opacity:1;transform:scale(1.03);}}
   nav{direction:ltr;}
-</style>
+.contact-form{max-width:640px;margin:0 auto 20px;display:flex;flex-direction:column;gap:16px;}.contact-form input,.contact-form textarea{background:rgba(245,242,236,0.04);border:1px solid var(--hairline);color:var(--cream);padding:14px 16px;font-family:'Noto Kufi Arabic','Montserrat',sans-serif;font-size:14px;width:100%;}.contact-form textarea{min-height:120px;resize:vertical;}.contact-form input::placeholder,.contact-form textarea::placeholder{color:var(--muted);}.contact-form input:focus,.contact-form textarea:focus{outline:none;border-color:var(--gold);}.contact-form button{background:var(--gold);color:var(--ink);padding:15px 32px;font-size:12px;letter-spacing:0.05em;font-weight:600;border:none;cursor:pointer;align-self:center;}.contact-form button:disabled{opacity:0.6;cursor:not-allowed;}#formStatus{text-align:center;font-size:13px;margin-bottom:32px;min-height:18px;}#formStatus.success{color:var(--gold-light);}#formStatus.error{color:#e07a7a;}</style>
 </head>
 <body>
 <div id="loader"><img src="images/logo.svg" alt="Core Edge Developments"></div>
@@ -430,7 +430,7 @@
       <div class="cval">West Square Mall - 2nd Floor • S31<br>SODIC West Beverly Hills • Giza • Egypt</div>
     </div>
   </div>
-  <div class="contact-cta reveal">
+  <form class="contact-form reveal" id="contactForm"><input type="text" name="name" placeholder="اسمك" required><input type="email" name="email" placeholder="بريدك الإلكتروني" required><input type="tel" name="phone" placeholder="رقم الهاتف (اختياري)"><textarea name="message" placeholder="كيف يمكننا مساعدتك؟" required></textarea><button type="submit">إرسال الرسالة</button></form><div id="formStatus"></div><div class="contact-cta reveal">
     <a href="https://wa.me/201100003939" class="btn-primary">راسلنا على WhatsApp</a>
   </div>
 </section>
@@ -507,5 +507,5 @@
 
 <div id="sp" style="position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,#C9A84C,#E3C77E);z-index:10000;transition:width .12s ease;"></div>
 <script>addEventListener('scroll',function(){var h=document.documentElement,m=h.scrollHeight-h.clientHeight;document.getElementById('sp').style.width=(m>0?(h.scrollTop/m*100):0)+'%';},{passive:true});</script>
-</body>
+<script>const contactForm=document.getElementById('contactForm');if(contactForm){contactForm.addEventListener('submit', async function(e){e.preventDefault();const btn=contactForm.querySelector('button');const status=document.getElementById('formStatus');const data=Object.fromEntries(new FormData(contactForm));btn.disabled=true; btn.textContent='جارِ الإرسال...';status.textContent=''; status.className='';try{const res=await fetch('/api/contact',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});if(res.ok){status.textContent='شكراً، تم إرسال رسالتك.';status.className='success';contactForm.reset();}else{status.textContent='حدث خطأ ما. برجاء التواصل عبر واتساب أو البريد الإلكتروني.';status.className='error';}}catch(err){status.textContent='حدث خطأ ما. برجاء التواصل عبر واتساب أو البريد الإلكتروني.';status.className='error';}btn.disabled=false; btn.textContent='إرسال الرسالة';});}</script></body>
 </html>
