@@ -222,7 +222,7 @@
   footer{border-top:1px solid var(--hairline);padding:72px 48px 0;}
   .footer-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;padding-bottom:56px;}
   .footer-col h4{font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;font-weight:600;}
-  .footer-mark{font-family:'Cormorant Garamond',serif;font-size:24px;color:var(--cream);margin-bottom:16px;}
+  .contact-form{max-width:640px;margin:0 auto 20px;display:flex;flex-direction:column;gap:16px;}.contact-form input,.contact-form textarea{background:rgba(245,242,236,0.04);border:1px solid var(--hairline);color:var(--cream);padding:14px 16px;font-family:'Montserrat',sans-serif;font-size:14px;width:100%;}.contact-form textarea{min-height:120px;resize:vertical;}.contact-form input::placeholder,.contact-form textarea::placeholder{color:var(--muted);}.contact-form input:focus,.contact-form textarea:focus{outline:none;border-color:var(--gold);}.contact-form button{background:var(--gold);color:var(--ink);padding:15px 32px;font-size:12px;letter-spacing:0.16em;text-transform:uppercase;font-weight:600;border:none;cursor:pointer;align-self:center;}.contact-form button:disabled{opacity:0.6;cursor:not-allowed;}#formStatus{text-align:center;font-size:13px;margin-bottom:32px;min-height:18px;}#formStatus.success{color:var(--gold-light);}#formStatus.error{color:#e07a7a;}</style>.footer-mark{font-family:'Cormorant Garamond',serif;font-size:24px;color:var(--cream);margin-bottom:16px;}
   .footer-mark span{color:var(--gold);}
   .footer-col p{font-size:13px;line-height:1.75;color:var(--muted);}
   .footer-col a{display:block;color:var(--muted);text-decoration:none;font-size:13px;line-height:2.2;transition:color 0.2s;}
@@ -427,7 +427,7 @@
       <div class="cval">West Square Mall, 2nd Floor, S31<br>SODIC West Beverly Hills, Giza</div>
     </div>
   </div>
-  <div class="contact-cta reveal">
+  <form class="contact-form reveal" id="contactForm"><input type="text" name="name" placeholder="Your Name" required><input type="email" name="email" placeholder="Your Email" required><input type="tel" name="phone" placeholder="Phone (optional)"><textarea name="message" placeholder="How can we help?" required></textarea><button type="submit">Send Message</button></form><div id="formStatus"></div><div class="contact-cta reveal">
     <a href="https://wa.me/201100003939" class="btn-primary">Message Us On WhatsApp</a>
   </div>
 </section>
@@ -504,5 +504,5 @@
 
 <div id="sp" style="position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,#C9A84C,#E3C77E);z-index:10000;transition:width .12s ease;"></div>
 <script>addEventListener('scroll',function(){var h=document.documentElement,m=h.scrollHeight-h.clientHeight;document.getElementById('sp').style.width=(m>0?(h.scrollTop/m*100):0)+'%';},{passive:true});</script>
-</body>
+<script>const contactForm=document.getElementById('contactForm');if(contactForm){contactForm.addEventListener('submit', async function(e){e.preventDefault();const btn=contactForm.querySelector('button');const status=document.getElementById('formStatus');const data=Object.fromEntries(new FormData(contactForm));btn.disabled=true; btn.textContent='Sending...';status.textContent=''; status.className='';try{const res=await fetch('/api/contact',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});if(res.ok){status.textContent='Thank you - your message has been sent.';status.className='success';contactForm.reset();}else{status.textContent='Something went wrong. Please try WhatsApp or email instead.';status.className='error';}}catch(err){status.textContent='Something went wrong. Please try WhatsApp or email instead.';status.className='error';}btn.disabled=false; btn.textContent='Send Message';});}</script></body>
 </html>
