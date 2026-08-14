@@ -38,5 +38,24 @@
     window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
   </script>
   <script defer src="/_vercel/insights/script.js"></script>
+
+  <!-- Core Edge WhatsApp contact widget -->
+  <style>
+    .ce-wa-widget{position:fixed;right:22px;bottom:22px;z-index:8500;display:flex;align-items:center;gap:10px;padding:10px 15px 10px 12px;border:1px solid rgba(201,168,76,.72);border-radius:999px;background:rgba(8,8,6,.94);box-shadow:0 12px 30px rgba(0,0,0,.34);color:#F5F2EC;text-decoration:none;font-family:Montserrat,Arial,sans-serif;transition:transform .2s ease,background .2s ease,border-color .2s ease}
+    .ce-wa-widget:hover{transform:translateY(-3px);background:#C9A84C;border-color:#C9A84C;color:#080806}
+    .ce-wa-icon{width:34px;height:34px;display:grid;place-items:center;border-radius:50%;background:#25D366;color:#fff;font-size:19px;font-weight:700;line-height:1}
+    .ce-wa-copy{display:flex;flex-direction:column;gap:2px}
+    .ce-wa-label{font-size:10px;letter-spacing:.16em;text-transform:uppercase;font-weight:700}
+    .ce-wa-sub{font-size:10px;color:#8A8578}
+    .ce-wa-widget:hover .ce-wa-sub{color:#080806}
+    @media(max-width:560px){.ce-wa-widget{right:14px;bottom:14px;padding:8px;border-radius:50%;width:54px;height:54px;justify-content:center}.ce-wa-copy{display:none}.ce-wa-icon{width:36px;height:36px}}
+  </style>
+  <a class="ce-wa-widget" href="https://wa.me/201100003939?text=Hello%20Core%20Edge%2C%20I%27d%20like%20to%20learn%20more%20about%20Aura." target="_blank" rel="noopener" aria-label="Ask Core Edge about Aura on WhatsApp" data-track="whatsapp_widget">
+    <span class="ce-wa-icon" aria-hidden="true">⌕</span>
+    <span class="ce-wa-copy"><span class="ce-wa-label">WhatsApp</span><span class="ce-wa-sub">Ask about Aura</span></span>
+  </a>
+  <script>
+    document.querySelectorAll('a[href*="wa.me"]').forEach(function(link){link.addEventListener('click',function(){if(window.va){window.va('event',{name:'whatsapp_click',data:{location:link.dataset.track||'site_link'}});}});});
+  </script>
 </body>
 </html>

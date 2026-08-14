@@ -339,7 +339,7 @@
   <img class="logo" src="images/aura-logo.svg" alt="AURA">
   <div class="label">Residential Compound · By Core Edge</div>
   <h1>A sanctuary of refined living</h1>
-  <p class="sub">Not merely a residence. A legacy.</p>
+  <p class="sub">Twenty private villas in Sheikh Zayed’s Green Belt — designed for privacy, ownership, and lasting value.</p>
   <div class="loc">6th of October City · Giza · Egypt</div>
   <div class="hero-cta">
     <a href="https://wa.me/201100003939" class="btn-primary">Reserve Your Villa</a>
@@ -348,6 +348,12 @@
   <div class="flourish">❧</div>
 </section>
 
+<section class="aura-brief" aria-label="Aura project summary">
+  <div><span class="brief-value">20</span><span class="brief-label">Private villas</span></div>
+  <div><span class="brief-value">279 m²</span><span class="brief-label">Built-up area per villa</span></div>
+  <div><span class="brief-value">Green Belt</span><span class="brief-label">Sheikh Zayed, Giza</span></div>
+  <div><span class="brief-value">2029</span><span class="brief-label">Projected handover</span></div>
+</section>
 <section class="excl">
   <div class="excl-intro reveal">
     <div class="label">Private Villas Only</div>
@@ -657,5 +663,24 @@
     window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
   </script>
   <script defer src="/_vercel/insights/script.js"></script>
+
+  <!-- Core Edge WhatsApp contact widget -->
+  <style>
+    .ce-wa-widget{position:fixed;right:22px;bottom:22px;z-index:8500;display:flex;align-items:center;gap:10px;padding:10px 15px 10px 12px;border:1px solid rgba(201,168,76,.72);border-radius:999px;background:rgba(8,8,6,.94);box-shadow:0 12px 30px rgba(0,0,0,.34);color:#F5F2EC;text-decoration:none;font-family:Montserrat,Arial,sans-serif;transition:transform .2s ease,background .2s ease,border-color .2s ease}
+    .ce-wa-widget:hover{transform:translateY(-3px);background:#C9A84C;border-color:#C9A84C;color:#080806}
+    .ce-wa-icon{width:34px;height:34px;display:grid;place-items:center;border-radius:50%;background:#25D366;color:#fff;font-size:19px;font-weight:700;line-height:1}
+    .ce-wa-copy{display:flex;flex-direction:column;gap:2px}
+    .ce-wa-label{font-size:10px;letter-spacing:.16em;text-transform:uppercase;font-weight:700}
+    .ce-wa-sub{font-size:10px;color:#8A8578}
+    .ce-wa-widget:hover .ce-wa-sub{color:#080806}
+    @media(max-width:560px){.ce-wa-widget{right:14px;bottom:14px;padding:8px;border-radius:50%;width:54px;height:54px;justify-content:center}.ce-wa-copy{display:none}.ce-wa-icon{width:36px;height:36px}}
+  </style>
+  <a class="ce-wa-widget" href="https://wa.me/201100003939?text=Hello%20Core%20Edge%2C%20I%27d%20like%20to%20learn%20more%20about%20Aura." target="_blank" rel="noopener" aria-label="Ask Core Edge about Aura on WhatsApp" data-track="whatsapp_widget">
+    <span class="ce-wa-icon" aria-hidden="true">⌕</span>
+    <span class="ce-wa-copy"><span class="ce-wa-label">WhatsApp</span><span class="ce-wa-sub">Ask about Aura</span></span>
+  </a>
+  <script>
+    document.querySelectorAll('a[href*="wa.me"]').forEach(function(link){link.addEventListener('click',function(){if(window.va){window.va('event',{name:'whatsapp_click',data:{location:link.dataset.track||'site_link'}});}});});
+  </script>
 </body>
 </html>
