@@ -651,5 +651,11 @@
 
 <div id="sp" style="position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,#C9A84C,#E3C77E);z-index:10000;transition:width .12s ease;"></div>
 <script>addEventListener('scroll',function(){var h=document.documentElement,m=h.scrollHeight-h.clientHeight;document.getElementById('sp').style.width=(m>0?(h.scrollTop/m*100):0)+'%';},{passive:true});</script>
-<script>window.addEventListener('load',function(){if(location.hash){var t=document.querySelector(location.hash);if(t){setTimeout(function(){var y=t.getBoundingClientRect().top+window.pageYOffset-90;window.scrollTo({top:y,behavior:'smooth'});},400);}}});</script></body>
+<script>window.addEventListener('load',function(){if(location.hash){var t=document.querySelector(location.hash);if(t){setTimeout(function(){var y=t.getBoundingClientRect().top+window.pageYOffset-90;window.scrollTo({top:y,behavior:'smooth'});},400);}}});</script>
+  <!-- Vercel Web Analytics -->
+  <script>
+    window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+  </script>
+  <script defer src="/_vercel/insights/script.js"></script>
+</body>
 </html>
