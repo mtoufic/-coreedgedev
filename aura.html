@@ -110,7 +110,14 @@
   .stats{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(5,1fr);text-align:center;gap:8px;}
   .stat-num{font-family:'Cormorant Garamond',serif;font-size:clamp(30px,4vw,44px);color:var(--gold-deep);}
   .stat-label{margin-top:8px;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);}
-  @media(max-width:768px){.stats{grid-template-columns:repeat(2,1fr);gap:32px;}}
+  .aura-brief{padding:54px 24px 58px;background:var(--cream-deep);border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline);display:grid;grid-template-columns:repeat(4,1fr);text-align:center;gap:0;}
+  .aura-brief>div{padding:6px 22px;border-right:1px solid var(--hairline);}
+  .aura-brief>div:last-child{border-right:none;}
+  .brief-value{display:block;font-family:'Cormorant Garamond',serif;font-size:clamp(30px,4vw,46px);line-height:1;color:var(--gold-deep);}
+  .brief-label{display:block;margin-top:11px;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);}
+  @media(max-width:768px){.stats{grid-template-columns:repeat(2,1fr);gap:32px;} .aura-brief{grid-template-columns:repeat(2,1fr);gap:24px 0;padding:40px 18px;} .aura-brief>div:nth-child(2){border-right:none;} .aura-brief>div:nth-child(-n+2){padding-bottom:22px;border-bottom:1px solid var(--hairline);} .aura-brief>div:nth-child(3),.aura-brief>div:nth-child(4){padding-top:22px;}}
+  @media(max-width:420px){.aura-brief{grid-template-columns:1fr;gap:0;} .aura-brief>div,.aura-brief>div:nth-child(2),.aura-brief>div:nth-child(3),.aura-brief>div:nth-child(4){border-right:none;border-bottom:1px solid var(--hairline);padding:20px 10px;} .aura-brief>div:last-child{border-bottom:none;}}
+
 
   /* architecture */
   .arch{background:var(--ink);color:var(--cream);}
@@ -316,7 +323,7 @@
 </style>
 
   <style>
-    .aura-brochure-cta{max-width:1080px;margin:18px auto 52px;padding:24px 28px;display:flex;align-items:center;justify-content:space-between;gap:24px;border:1px solid rgba(201,168,76,.48);background:linear-gradient(110deg,rgba(201,168,76,.12),rgba(255,255,255,.03));}
+    .aura-brochure-cta{max-width:1000px;margin:0 auto;padding:34px 24px 42px;display:flex;align-items:center;justify-content:space-between;gap:24px;border-bottom:1px solid var(--hairline);background:var(--cream-deep);}
     .aura-brochure-cta .label{margin-bottom:8px}
     .aura-brochure-cta p{margin:0;color:var(--muted,#aaa);font-size:14px;line-height:1.6}
     .aura-brochure-cta a{white-space:nowrap}
@@ -363,6 +370,14 @@
   <div><span class="brief-value">Green Belt</span><span class="brief-label">Sheikh Zayed, Giza</span></div>
   <div><span class="brief-value">2029</span><span class="brief-label">Projected handover</span></div>
 </section>
+<section class="aura-brochure-cta" aria-label="Download the AURA brochure">
+  <div>
+    <div class="label">AURA BROCHURE</div>
+    <p>Explore the villas, architecture, location, and project details in the complete presentation.</p>
+  </div>
+  <a class="btn-primary" href="https://files.manuscdn.com/user_upload_by_module/session_file/310519663710830760/GCFPYkqHwJfbsgIH.pdf" target="_blank" rel="noopener" data-track="brochure_download">Download the brochure</a>
+</section>
+
 <section class="excl">
   <div class="excl-intro reveal">
     <div class="label">Private Villas Only</div>
@@ -375,14 +390,6 @@
   </div>
 </section>
 
-
-<section class="aura-brochure-cta" aria-label="Download the AURA brochure">
-  <div>
-    <div class="label">AURA BROCHURE</div>
-    <p>Explore the villas, architecture, location, and project details in the complete presentation.</p>
-  </div>
-  <a class="btn-primary" href="https://files.manuscdn.com/user_upload_by_module/session_file/310519663710830760/GCFPYkqHwJfbsgIH.pdf" target="_blank" rel="noopener" data-track="brochure_download">Download the brochure</a>
-</section>
 
 <section id="project">
   <div class="section-head reveal">
